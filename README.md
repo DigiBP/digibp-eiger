@@ -1,2 +1,2 @@
-# eiger
+# digibp-eiger
 Add description of the project...
