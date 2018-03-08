@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" id="definitions_07l25lb" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="decision" name="Vacancy Approval">
+    <extensionElements>
+      <biodi:bounds x="200" y="200" width="180" height="80" />
+      <biodi:edge source="BusinessKnowledgeModel_1t1tapx">
+        <biodi:waypoints x="479" y="242" />
+        <biodi:waypoints x="380" y="243" />
+      </biodi:edge>
+      <biodi:edge source="InputData_0et2pye">
+        <biodi:waypoints x="266" y="327" />
+        <biodi:waypoints x="267" y="280" />
+      </biodi:edge>
+      <biodi:edge source="KnowledgeSource_12pl065">
+        <biodi:waypoints x="393" y="142" />
+        <biodi:waypoints x="326" y="200" />
+      </biodi:edge>
+    </extensionElements>
+    <informationRequirement>
+      <requiredInput href="#InputData_0et2pye" />
+    </informationRequirement>
+    <knowledgeRequirement>
+      <requiredKnowledge href="#BusinessKnowledgeModel_1t1tapx" />
+    </knowledgeRequirement>
+    <authorityRequirement>
+      <requiredAuthority href="#KnowledgeSource_12pl065" />
+    </authorityRequirement>
+    <decisionTable id="decisionTable">
+      <input id="input1" label="fundsAvailable">
+        <inputExpression id="inputExpression1" typeRef="boolean">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1scl72k" label="headCountEligibleForQuarter">
+        <inputExpression id="LiteralExpression_0x32gbh" typeRef="boolean" />
+      </input>
+      <input id="InputClause_0z2hkkn" label="isSalaryJustifiedForPosition">
+        <inputExpression id="LiteralExpression_10y23db" typeRef="boolean" />
+      </input>
+      <output id="output1" label="vacancyApproved" name="" typeRef="boolean" />
+      <rule id="row-78273386-25">
+        <description>Administrative</description>
+        <inputEntry id="UnaryTests_1s8gz44">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tiv0z9">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cwyb4b">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1aq99bw">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-78273386-26">
+        <description>Legal</description>
+        <inputEntry id="UnaryTests_1erqxbi">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mvkije">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14hqu2s">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1wi79n2">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-78273386-27">
+        <description>Legal</description>
+        <inputEntry id="UnaryTests_0i8xu24">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yo2eo5">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_113rw4z">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1fapk8b">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-78273386-28">
+        <inputEntry id="UnaryTests_0zfc13k">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03kuqar">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16bquub">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04690on">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <businessKnowledgeModel id="BusinessKnowledgeModel_1t1tapx" name="Legal/Administrative approval criteria">
+    <extensionElements>
+      <biodi:bounds x="479" y="219" width="135" height="46" />
+      <biodi:edge source="KnowledgeSource_12pl065">
+        <biodi:waypoints x="455" y="142" />
+        <biodi:waypoints x="523" y="219" />
+      </biodi:edge>
+    </extensionElements>
+    <authorityRequirement>
+      <requiredAuthority href="#KnowledgeSource_12pl065" />
+    </authorityRequirement>
+  </businessKnowledgeModel>
+  <inputData id="InputData_0et2pye" name="Vacancy Details">
+    <extensionElements>
+      <biodi:bounds x="203" y="327" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+  <knowledgeSource id="KnowledgeSource_12pl065" name="Internal Policies">
+    <extensionElements>
+      <biodi:bounds x="378" y="79" width="100" height="63" />
+    </extensionElements>
+  </knowledgeSource>
+</definitions>
