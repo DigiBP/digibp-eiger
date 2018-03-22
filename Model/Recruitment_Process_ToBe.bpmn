@@ -776,8 +776,8 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="MessageFlow_0huripx_di" bpmnElement="MessageFlow_0huripx">
-        <di:waypoint xsi:type="dc:Point" x="829" y="1259" />
-        <di:waypoint xsi:type="dc:Point" x="855" y="-91" />
+        <di:waypoint xsi:type="dc:Point" x="828" y="1259" />
+        <di:waypoint xsi:type="dc:Point" x="828" y="-91" />
         <di:waypoint xsi:type="dc:Point" x="1091" y="-91" />
         <di:waypoint xsi:type="dc:Point" x="1091" y="-395" />
         <bpmndi:BPMNLabel>
