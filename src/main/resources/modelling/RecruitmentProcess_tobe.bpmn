@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.11.3">
   <bpmn:collaboration id="Collaboration_19h3ovc">
-    <bpmn:participant id="Participant_0ushlu9" processRef="Process_0liefbk" />
+    <bpmn:participant id="Participant_0ushlu9" name="Recruitment Process" processRef="Process_0liefbk" />
   </bpmn:collaboration>
   <bpmn:process id="Process_0liefbk" isExecutable="false">
     <bpmn:laneSet>
@@ -11,7 +11,7 @@
         <bpmn:flowNodeRef>Task_02c213m</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_0jmcpx3</bpmn:flowNodeRef>
       </bpmn:lane>
-      <bpmn:lane id="Lane_1dkxtrs">
+      <bpmn:lane id="Lane_1dkxtrs" name="HR Department">
         <bpmn:flowNodeRef>ExclusiveGateway_06359n4</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_1ptal0h</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>EndEvent_0a00aec</bpmn:flowNodeRef>
@@ -21,8 +21,8 @@
         <bpmn:flowNodeRef>Task_02u8tk9</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>EndEvent_05g0aga</bpmn:flowNodeRef>
       </bpmn:lane>
-      <bpmn:lane id="Lane_1jk8pjw" />
-      <bpmn:lane id="Lane_04qsm6r" />
+      <bpmn:lane id="Lane_1jk8pjw" name="Interview Team" />
+      <bpmn:lane id="Lane_04qsm6r" name="Evaluation Team" />
     </bpmn:laneSet>
     <bpmn:startEvent id="StartEvent_0n5uoqt">
       <bpmn:outgoing>SequenceFlow_1yy8kl7</bpmn:outgoing>
