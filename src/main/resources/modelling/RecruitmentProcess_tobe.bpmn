@@ -3,7 +3,7 @@
   <bpmn:collaboration id="Collaboration_15scggz">
     <bpmn:participant id="Participant_1620q5y" name="Recruitment Process" processRef="Process_05yy53p" />
   </bpmn:collaboration>
-  <bpmn:process id="Process_05yy53p" isExecutable="false">
+  <bpmn:process id="Process_05yy53p" isExecutable="true">
     <bpmn:startEvent id="StartEvent_0hy2tvo">
       <bpmn:outgoing>SequenceFlow_15ful0b</bpmn:outgoing>
     </bpmn:startEvent>
