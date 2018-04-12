@@ -253,7 +253,7 @@
     </bpmn:intermediateThrowEvent>
     <bpmn:sequenceFlow id="SequenceFlow_1g2kz50" sourceRef="IntermediateThrowEvent_0s1rnn1" targetRef="ExclusiveGateway_17m6gg1" />
     <bpmn:sequenceFlow id="SequenceFlow_0yma7mw" sourceRef="Task_1hkrlux" targetRef="IntermediateThrowEvent_0s1rnn1" />
-    <bpmn:sendTask id="Task_1xm2plc" name="Inform agency" camunda:expression="${runtimeService.createMessageCorrelation(&#34;Message_A_B_Info&#34;).setVariables(execution.getVariables()).correlateWithResult()}" camunda:resultVariable="candidateFound">
+    <bpmn:sendTask id="Task_1xm2plc" name="Inform agency" camunda:expression="${runtimeService.createMessageCorrelation(&#34;Message_A_B_Info&#34;).setVariables(execution.getVariables()).correlateWithResult()}">
       <bpmn:incoming>SequenceFlow_0ei8j76</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1m9hivr</bpmn:outgoing>
     </bpmn:sendTask>
@@ -287,7 +287,7 @@
       <bpmn:incoming>SequenceFlow_179ifnq</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_08l7dyw</bpmn:outgoing>
     </bpmn:sendTask>
-    <bpmn:sendTask id="Task_0xw3l6e" name="Inform Candidate" camunda:expression="${runtimeService.createMessageCorrelation(&#34;Message_A_C_information&#34;).setVariables(execution.getVariables()).correlateWithResult()}" camunda:resultVariable="jobOffered">
+    <bpmn:sendTask id="Task_0xw3l6e" name="Inform Candidate" camunda:expression="${runtimeService.createMessageCorrelation(&#34;Message_A_C_information&#34;).setVariables(execution.getVariables()).correlateWithResult()}">
       <bpmn:incoming>SequenceFlow_1qqguqc</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_117ati5</bpmn:outgoing>
     </bpmn:sendTask>
