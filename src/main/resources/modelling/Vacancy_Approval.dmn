@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="Definitions_00p07fa" name="DRD" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="vacancyApproval" name="Decision 1">
+    <decisionTable id="decisionTable_1">
+      <input id="input_1" label="Role">
+        <inputExpression id="inputExpression_1" typeRef="string">
+          <text>vacancyTitle</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0kw1a9y" label="Funds Available">
+        <inputExpression id="LiteralExpression_19tu2nb" typeRef="boolean">
+          <text>fundsAvailable</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1h719rd" label="Headcount eligible for quarter">
+        <inputExpression id="LiteralExpression_1eg7585" typeRef="boolean">
+          <text>headCountEligible</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1azd1zk" label="Salary justified for position">
+        <inputExpression id="LiteralExpression_15wrhks" typeRef="boolean">
+          <text>isSalaryJustified</text>
+        </inputExpression>
+      </input>
+      <output id="output_1" name="vacancyApproved" typeRef="boolean" />
+      <rule id="DecisionRule_1l300cp">
+        <inputEntry id="UnaryTests_1es7e7g">
+          <text><![CDATA["Programmer"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jfe43u">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r5mkzk">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0y6m7tz">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1a6mphm">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1wlc68d">
+        <inputEntry id="UnaryTests_1av8hw4">
+          <text><![CDATA["Programmer"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1375aot">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uu52jt">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0du1cfz">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06pp9ob">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0e2nf2i">
+        <inputEntry id="UnaryTests_1ecq4f2">
+          <text><![CDATA["Programmer"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1opl50x">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kbcu34">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1os2p5f">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0sv43my">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1qk4nvi">
+        <inputEntry id="UnaryTests_1jtcv75">
+          <text><![CDATA["Programmer"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17rsl8a">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0uspyfp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11a0xjk">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0jm49zk">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

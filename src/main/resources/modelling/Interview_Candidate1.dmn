@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" id="Definitions_10psnat" name="DRD" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="acceptCandidate" name="Accept Candidate">
+    <extensionElements>
+      <biodi:bounds x="200" y="200" width="180" height="80" />
+    </extensionElements>
+    <decisionTable id="decisionTable_1" hitPolicy="COLLECT">
+      <input id="InputClause_0345du4" label="Role" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_1i2kxs0" typeRef="string">
+          <text>jobTitle</text>
+        </inputExpression>
+      </input>
+      <input id="input_1" label="Leadership Skills" camunda:inputVariable="">
+        <inputExpression id="inputExpression_1" typeRef="string">
+          <text>leadershipSkills</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_05ouktl">
+          <text><![CDATA[""High"",""Medium"",""Low""]]></text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0kzkbpg" label="Technical Skills" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_1bp4pe2" typeRef="string">
+          <text>technicalSkills</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1a2jcxp" label="Communication Skills" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_14fkrkb" typeRef="string">
+          <text>communicationSkills</text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="Accept Candidate" name="jobOffered" typeRef="boolean" />
+      <output id="OutputClause_1v330h2" label="Inform Agency" name="candidateFound" typeRef="boolean" />
+      <rule id="DecisionRule_0zznonx">
+        <inputEntry id="UnaryTests_1t9v8cr">
+          <text><![CDATA["Programmer"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pi1ubr">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01wb4h9">
+          <text><![CDATA["Low"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pr6q6e">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_05gomwi">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0is9bbb">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0g4hwlo">
+        <inputEntry id="UnaryTests_1pzgjs0">
+          <text><![CDATA["Programmer"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1s8v7lu">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kj9eeu">
+          <text><![CDATA["Medium"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yjx4q5">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1akqr35">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1gk6rxs">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_16pibp9">
+        <inputEntry id="UnaryTests_0pwtkjt">
+          <text><![CDATA["Programmer"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1g5l9lq">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ovbul4">
+          <text><![CDATA["High"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cyd904">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ifiut1">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1l1jy24">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
