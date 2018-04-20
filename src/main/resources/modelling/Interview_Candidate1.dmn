@@ -4,7 +4,7 @@
     <extensionElements>
       <biodi:bounds x="200" y="200" width="180" height="80" />
     </extensionElements>
-    <decisionTable id="decisionTable_1" hitPolicy="COLLECT">
+    <decisionTable id="decisionTable_1">
       <input id="InputClause_0345du4" label="Role" camunda:inputVariable="">
         <inputExpression id="LiteralExpression_1i2kxs0" typeRef="string">
           <text>jobTitle</text>
@@ -28,8 +28,7 @@
           <text>communicationSkills</text>
         </inputExpression>
       </input>
-      <output id="output_1" label="Accept Candidate" name="jobOffered" typeRef="boolean" />
-      <output id="OutputClause_1v330h2" label="Inform Agency" name="candidateFound" typeRef="boolean" />
+      <output id="output_1" label="Accept Candidate" name="candidateFound" typeRef="boolean" />
       <rule id="DecisionRule_0zznonx">
         <inputEntry id="UnaryTests_1t9v8cr">
           <text><![CDATA["Programmer"]]></text>
@@ -44,9 +43,6 @@
           <text></text>
         </inputEntry>
         <outputEntry id="LiteralExpression_05gomwi">
-          <text>false</text>
-        </outputEntry>
-        <outputEntry id="LiteralExpression_0is9bbb">
           <text>false</text>
         </outputEntry>
       </rule>
@@ -66,9 +62,6 @@
         <outputEntry id="LiteralExpression_1akqr35">
           <text>false</text>
         </outputEntry>
-        <outputEntry id="LiteralExpression_1gk6rxs">
-          <text>true</text>
-        </outputEntry>
       </rule>
       <rule id="DecisionRule_16pibp9">
         <inputEntry id="UnaryTests_0pwtkjt">
@@ -84,9 +77,6 @@
           <text></text>
         </inputEntry>
         <outputEntry id="LiteralExpression_1ifiut1">
-          <text>true</text>
-        </outputEntry>
-        <outputEntry id="LiteralExpression_1l1jy24">
           <text>true</text>
         </outputEntry>
       </rule>

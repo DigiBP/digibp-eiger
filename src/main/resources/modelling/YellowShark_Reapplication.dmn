@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="definitions_1dx0rgg" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="reapplicationDecision" name="Reapplication Rules">
+    <decisionTable id="decisionTable">
+      <input id="input1" label="Did the applicant apply for this job within the last six months" camunda:inputVariable="">
+        <inputExpression id="inputExpression1" typeRef="boolean">
+          <text>appliedWithinLastSixMonths</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1h61xqz" label="Are the job requirements met" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_07zls9j" typeRef="boolean">
+          <text>jobRequirementsMet</text>
+        </inputExpression>
+      </input>
+      <output id="output1" label="The applicant gets informed" name="informApplicant" typeRef="boolean" />
+      <rule id="row-78273386-34">
+        <inputEntry id="UnaryTests_14ie27y">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17lzx1p">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1cf4cod">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-78273386-35">
+        <inputEntry id="UnaryTests_0jwzj2u">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ioay9a">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_024c2ds">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-78273386-36">
+        <inputEntry id="UnaryTests_00sz7wv">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yzl8xj">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0brxx8g">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
