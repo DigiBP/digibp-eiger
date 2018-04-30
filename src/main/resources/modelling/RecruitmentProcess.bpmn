@@ -66,7 +66,7 @@
       <bpmn:outgoing>SequenceFlow_06xr71l</bpmn:outgoing>
     </bpmn:exclusiveGateway>
     <bpmn:sequenceFlow id="SequenceFlow_1npk1tb" name="Yes" sourceRef="ExclusiveGateway_125fy3u" targetRef="Task_1hkrlux">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${vacancyApprovalResult.vacvacancyApproved == true}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${vacancyApprovalResult.vacancyApproved == true}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_06xr71l" name="No" sourceRef="ExclusiveGateway_125fy3u" targetRef="ExclusiveGateway_084px9h">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${vacancyApprovalResult.vacancyApproved == false}</bpmn:conditionExpression>
@@ -79,7 +79,7 @@
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow_1d1idmu" sourceRef="Task_0avotrk" targetRef="EndEvent_0es8cce" />
     <bpmn:sequenceFlow id="SequenceFlow_08ns2ok" name="Administrative" sourceRef="ExclusiveGateway_084px9h" targetRef="Task_1hu46nq">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[${vacancyApprovalResult == 'Administrative'}]]></bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[${vacancyApprovalResult.rejectionType == 'Administrative'}]]></bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_1e659e7" sourceRef="Task_1hu46nq" targetRef="Task_1erg8r6" />
     <bpmn:userTask id="Task_0avotrk" name="Inform Business Unit" camunda:candidateGroups="hrdepartment">
@@ -89,7 +89,56 @@
     <bpmn:userTask id="Task_1hkrlux" name="Write job description" camunda:candidateGroups="hrdepartment">
       <bpmn:extensionElements>
         <camunda:formData>
-          <camunda:formField id="jobDescription" label="Job Description" type="string" defaultValue="Test Job Description to pass" />
+          <camunda:formField id="businessUnit" label="Business Unit" type="enum">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+            <camunda:value id="Value_2m8fkpm" name="Informatics" />
+            <camunda:value id="Value_14h98bm" name="Manufacturing" />
+            <camunda:value id="Value_1cub3am" name="Procurement" />
+            <camunda:value id="Value_3pr0h69" name="Sales" />
+            <camunda:value id="Value_1u1pl3p" name="Human Resources" />
+          </camunda:formField>
+          <camunda:formField id="vacancyTitle" label="Vacancy Title" type="string" defaultValue="Programmer">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="vacancySeniorityLevel" label="Seniority Level" type="enum">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+            <camunda:value id="Value_129g1d3" name="Not applicable" />
+            <camunda:value id="Value_3vt10qh" name="Junior" />
+            <camunda:value id="Value_0fhqgpa" name="Associate" />
+            <camunda:value id="Value_0cgosd5" name="Senior" />
+          </camunda:formField>
+          <camunda:formField id="vacancyJobPensum" label="Job Pensum (%)" type="enum">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+            <camunda:value id="Value_04toc8c" name="20" />
+            <camunda:value id="Value_1aehic6" name="40" />
+            <camunda:value id="Value_2jfmdbt" name="60" />
+            <camunda:value id="Value_0ci455c" name="80" />
+            <camunda:value id="Value_1jcn52j" name="100" />
+          </camunda:formField>
+          <camunda:formField id="vacancyDescription" label="Vacancy Description" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="vacancyRequirements" label="Vacancy Requirements" type="string" defaultValue="JS">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="vacancyStartDate" label="Vacancy start date" type="date" defaultValue="20/04/2018">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="vacancyFinalDescription" label="Final Vacancy Description" type="string" />
         </camunda:formData>
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_1npk1tb</bpmn:incoming>
@@ -101,6 +150,60 @@
       <bpmn:outgoing>SequenceFlow_08ns2ok</bpmn:outgoing>
     </bpmn:exclusiveGateway>
     <bpmn:userTask id="Task_1hu46nq" name="Send for revision" camunda:candidateGroups="hrdepartment">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="businessUnit" label="Business Unit" type="enum">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+            <camunda:value id="Value_2m8fkpm" name="Informatics" />
+            <camunda:value id="Value_14h98bm" name="Manufacturing" />
+            <camunda:value id="Value_1cub3am" name="Procurement" />
+            <camunda:value id="Value_3pr0h69" name="Sales" />
+            <camunda:value id="Value_1u1pl3p" name="Human Resources" />
+          </camunda:formField>
+          <camunda:formField id="vacancyTitle" label="Vacancy Title" type="string" defaultValue="Programmer">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="vacancySeniorityLevel" label="Seniority Level" type="enum">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+            <camunda:value id="Value_129g1d3" name="Not applicable" />
+            <camunda:value id="Value_3vt10qh" name="Junior" />
+            <camunda:value id="Value_0fhqgpa" name="Associate" />
+            <camunda:value id="Value_0cgosd5" name="Senior" />
+          </camunda:formField>
+          <camunda:formField id="vacancyJobPensum" label="Job Pensum (%)" type="enum">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+            <camunda:value id="Value_04toc8c" name="20" />
+            <camunda:value id="Value_1aehic6" name="40" />
+            <camunda:value id="Value_2jfmdbt" name="60" />
+            <camunda:value id="Value_0ci455c" name="80" />
+            <camunda:value id="Value_1jcn52j" name="100" />
+          </camunda:formField>
+          <camunda:formField id="vacancyDescription" label="Vacancy Description" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="vacancyRequirements" label="Vacancy Requirements" type="string" defaultValue="JS">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="vacancyStartDate" label="Vacancy start date" type="date" defaultValue="20/04/2018">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="revisionPoints" label="What should be further (re-)specified?" type="string" />
+        </camunda:formData>
+      </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_08ns2ok</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1e659e7</bpmn:outgoing>
     </bpmn:userTask>
@@ -113,6 +216,39 @@
       <bpmn:outgoing>SequenceFlow_1w7nxv9</bpmn:outgoing>
     </bpmn:exclusiveGateway>
     <bpmn:userTask id="Task_1erg8r6" name="Revise vacancy" camunda:candidateGroups="businessunit">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="businessUnit" label="Business Unit" type="enum">
+            <camunda:value id="Value_2m8fkpm" name="Informatics" />
+            <camunda:value id="Value_14h98bm" name="Manufacturing" />
+            <camunda:value id="Value_1cub3am" name="Procurement" />
+            <camunda:value id="Value_3pr0h69" name="Sales" />
+            <camunda:value id="Value_1u1pl3p" name="Human Resources" />
+          </camunda:formField>
+          <camunda:formField id="vacancyTitle" label="Vacancy Title" type="string" defaultValue="Programmer" />
+          <camunda:formField id="vacancySeniorityLevel" label="Seniority Level" type="enum">
+            <camunda:value id="Value_129g1d3" name="Not applicable" />
+            <camunda:value id="Value_3vt10qh" name="Junior" />
+            <camunda:value id="Value_0fhqgpa" name="Associate" />
+            <camunda:value id="Value_0cgosd5" name="Senior" />
+          </camunda:formField>
+          <camunda:formField id="vacancyJobPensum" label="Job Pensum (%)" type="enum">
+            <camunda:value id="Value_04toc8c" name="20" />
+            <camunda:value id="Value_1aehic6" name="40" />
+            <camunda:value id="Value_2jfmdbt" name="60" />
+            <camunda:value id="Value_0ci455c" name="80" />
+            <camunda:value id="Value_1jcn52j" name="100" />
+          </camunda:formField>
+          <camunda:formField id="vacancyDescription" label="Vacancy Description" type="string" />
+          <camunda:formField id="vacancyRequirements" label="Vacancy Requirements" type="string" defaultValue="JS" />
+          <camunda:formField id="vacancyStartDate" label="Vacancy start date" type="date" defaultValue="20/04/2018" />
+          <camunda:formField id="revisionPoints" label="Revision Points" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+        </camunda:formData>
+      </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_1e659e7</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0wlikuw</bpmn:outgoing>
     </bpmn:userTask>
@@ -136,9 +272,29 @@
     <bpmn:userTask id="Task_1rq30fg" name="Specify vacancy" camunda:candidateGroups="businessunit">
       <bpmn:extensionElements>
         <camunda:formData>
+          <camunda:formField id="businessUnit" label="Business Unit" type="enum">
+            <camunda:value id="Value_2m8fkpm" name="Informatics" />
+            <camunda:value id="Value_14h98bm" name="Manufacturing" />
+            <camunda:value id="Value_1cub3am" name="Procurement" />
+            <camunda:value id="Value_3pr0h69" name="Sales" />
+            <camunda:value id="Value_1u1pl3p" name="Human Resources" />
+          </camunda:formField>
           <camunda:formField id="vacancyTitle" label="Vacancy Title" type="string" defaultValue="Programmer" />
+          <camunda:formField id="vacancySeniorityLevel" label="Seniority Level" type="enum">
+            <camunda:value id="Value_129g1d3" name="Not applicable" />
+            <camunda:value id="Value_3vt10qh" name="Junior" />
+            <camunda:value id="Value_0fhqgpa" name="Associate" />
+            <camunda:value id="Value_0cgosd5" name="Senior" />
+          </camunda:formField>
+          <camunda:formField id="vacancyJobPensum" label="Job Pensum (%)" type="enum">
+            <camunda:value id="Value_04toc8c" name="20" />
+            <camunda:value id="Value_1aehic6" name="40" />
+            <camunda:value id="Value_2jfmdbt" name="60" />
+            <camunda:value id="Value_0ci455c" name="80" />
+            <camunda:value id="Value_1jcn52j" name="100" />
+          </camunda:formField>
+          <camunda:formField id="vacancyDescription" label="Vacancy Description" type="string" />
           <camunda:formField id="vacancyRequirements" label="Vacancy Requirements" type="string" defaultValue="JS" />
-          <camunda:formField id="vacancySalary" label="Vacancy Salary" type="string" defaultValue="1800" />
           <camunda:formField id="vacancyStartDate" label="Vacancy start date" type="date" defaultValue="20/04/2018" />
         </camunda:formData>
       </bpmn:extensionElements>
@@ -311,7 +467,7 @@
           <camunda:formField id="vacancyTitle" label="Role" type="string" />
           <camunda:formField id="fundsAvailable" label="Are funds available" type="boolean" />
           <camunda:formField id="headCountEligible" label="Is headcount eligible" type="boolean" />
-          <camunda:formField id="isSalaryJustified" label="Is salary justified" type="boolean" />
+          <camunda:formField id="isSpecifiedEnough" label="Is the vacancy specified accordingly?" type="boolean" />
         </camunda:formData>
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_1p5nv68</bpmn:incoming>

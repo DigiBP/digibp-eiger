@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_11v5zl5" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.12.0">
+  <bpmn:process id="Process_1" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="Echo requested">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="processVariableA" label="Process Variable A" type="string" />
+          <camunda:formField id="processVariableB" label="Process Variable B" type="string" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:outgoing>SequenceFlow_06ycd35</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_06ycd35" sourceRef="StartEvent_1" targetRef="Task_01eyr02" />
+    <bpmn:sequenceFlow id="SequenceFlow_0l21l9v" sourceRef="Task_01eyr02" targetRef="Task_0a7e088" />
+    <bpmn:endEvent id="EndEvent_1aio986">
+      <bpmn:incoming>SequenceFlow_1060kij</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1060kij" sourceRef="Task_0a7e088" targetRef="EndEvent_1aio986" />
+    <bpmn:serviceTask id="Task_01eyr02" name="Receive echo" camunda:modelerTemplate="digibp.connector.http.body" camunda:expression="${true}">
+      <bpmn:extensionElements>
+        <camunda:connector inout="">
+          <camunda:inputOutput>
+            <camunda:inputParameter name="method">POST</camunda:inputParameter>
+            <camunda:inputParameter name="headers">
+              <camunda:script scriptFormat="JavaScript"><![CDATA[var header = new java.util.HashMap();
+header.put("Content-Type","application/json");
+header;]]></camunda:script>
+            </camunda:inputParameter>
+            <camunda:inputParameter name="payload">
+              <camunda:script scriptFormat="JavaScript"><![CDATA[out = JSON.stringify({
+    "variableA":processVariableA,
+    "variableB":processVariableB,
+    "businesskey":execution.getBusinessKey()
+});]]></camunda:script>
+            </camunda:inputParameter>
+            <camunda:inputParameter name="url">https://putsreq.com/AnfG0hKuA9sNHqEIp6hf</camunda:inputParameter>
+            <camunda:outputParameter name="processVariableA">
+              <camunda:script scriptFormat="JavaScript"><![CDATA[    object = JSON.parse(response);
+processVariableA = object.variableA;]]></camunda:script>
+            </camunda:outputParameter>
+            <camunda:outputParameter name="processVariableB">
+              <camunda:script scriptFormat="JavaScript"><![CDATA[    object = JSON.parse(response);
+processVariableB = object.variableB;]]></camunda:script>
+            </camunda:outputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_06ycd35</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0l21l9v</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="Task_0a7e088" name="Inspect echo">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="processVariableA" label="Process Variable A" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="processVariableB" label="Process Variable B" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0l21l9v</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1060kij</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="173" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="151" y="138" width="80" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_06ycd35_di" bpmnElement="SequenceFlow_06ycd35">
+        <di:waypoint x="209" y="120" />
+        <di:waypoint x="259" y="120" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="234" y="99" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0l21l9v_di" bpmnElement="SequenceFlow_0l21l9v">
+        <di:waypoint x="359" y="120" />
+        <di:waypoint x="409" y="120" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="384" y="99" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="EndEvent_1aio986_di" bpmnElement="EndEvent_1aio986">
+        <dc:Bounds x="559" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="577" y="142" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1060kij_di" bpmnElement="SequenceFlow_1060kij">
+        <di:waypoint x="509" y="120" />
+        <di:waypoint x="559" y="120" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="534" y="99" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_0e0micm_di" bpmnElement="Task_01eyr02">
+        <dc:Bounds x="259" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_1xw1pwq_di" bpmnElement="Task_0a7e088">
+        <dc:Bounds x="409" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

@@ -15,9 +15,9 @@
           <text>headCountEligible</text>
         </inputExpression>
       </input>
-      <input id="InputClause_1azd1zk" label="Salary justified for position">
+      <input id="InputClause_1azd1zk" label="Is vacancy specified enough?">
         <inputExpression id="LiteralExpression_15wrhks" typeRef="boolean">
-          <text>isSalaryJustified</text>
+          <text>isSpecifiedEnough</text>
         </inputExpression>
       </input>
       <output id="output_1" label="Vacancy Approval" name="vacancyApproved" typeRef="boolean" />
@@ -57,7 +57,7 @@
           <text>false</text>
         </outputEntry>
         <outputEntry id="LiteralExpression_0r062pl">
-          <text><![CDATA["Legal"]]></text>
+          <text><![CDATA["Administrative"]]></text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_0e2nf2i">
@@ -108,7 +108,7 @@
           <text>false</text>
         </outputEntry>
         <outputEntry id="LiteralExpression_1eemd3d">
-          <text><![CDATA["Administrative"]]></text>
+          <text><![CDATA["Legal"]]></text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_1p0145y">
