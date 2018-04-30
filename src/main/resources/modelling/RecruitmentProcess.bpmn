@@ -3,7 +3,7 @@
   <bpmn:collaboration id="Collaboration_15scggz">
     <bpmn:participant id="Participant_1620q5y" name="Recruitment Process" processRef="RecruitmentProcess" />
     <bpmn:participant id="Participant_1ejl6nn" name="YellowShark Process" processRef="YellowsharkProcess" />
-    <bpmn:messageFlow id="MessageFlow_1gtuxql" sourceRef="IntermediateThrowEvent_0s1rnn1" targetRef="StartEvent_1e9l7ip" />
+    <bpmn:messageFlow id="MessageFlow_1gtuxql" sourceRef="Task_046bxtx" targetRef="StartEvent_1e9l7ip" />
     <bpmn:messageFlow id="MessageFlow_15s4grt" sourceRef="IntermediateThrowEvent_0t6mh7k" targetRef="StartEvent_0v9bev6" />
     <bpmn:messageFlow id="MessageFlow_16d6jeq" sourceRef="Task_1xm2plc" targetRef="IntermediateThrowEvent_11e1jo4" />
     <bpmn:messageFlow id="MessageFlow_0obu2sp" sourceRef="IntermediateThrowEvent_1wpwykm" targetRef="IntermediateCatchEvent_1ii5f2e" />
@@ -30,11 +30,9 @@
         <bpmn:flowNodeRef>ExclusiveGateway_125fy3u</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>EndEvent_0es8cce</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_0avotrk</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_1hkrlux</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ExclusiveGateway_084px9h</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_1hu46nq</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ExclusiveGateway_17m6gg1</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>IntermediateThrowEvent_0s1rnn1</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ExclusiveGateway_181wftg</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ExclusiveGateway_0ja1r37</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_0dzm22g</bpmn:flowNodeRef>
@@ -55,6 +53,8 @@
         <bpmn:flowNodeRef>ExclusiveGateway_0bacahe</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>SubProcess_06015p8</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ExclusiveGateway_04bau3h</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_1hkrlux</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_046bxtx</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_179zgue" name="Evaluation Team">
         <bpmn:flowNodeRef>SubProcess_0qiukuo</bpmn:flowNodeRef>
@@ -85,64 +85,6 @@
     <bpmn:userTask id="Task_0avotrk" name="Inform Business Unit" camunda:candidateGroups="hrdepartment">
       <bpmn:incoming>SequenceFlow_17jfj1e</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1d1idmu</bpmn:outgoing>
-    </bpmn:userTask>
-    <bpmn:userTask id="Task_1hkrlux" name="Write job description" camunda:candidateGroups="hrdepartment">
-      <bpmn:extensionElements>
-        <camunda:formData>
-          <camunda:formField id="businessUnit" label="Business Unit" type="enum">
-            <camunda:validation>
-              <camunda:constraint name="readonly" />
-            </camunda:validation>
-            <camunda:value id="Value_2m8fkpm" name="Informatics" />
-            <camunda:value id="Value_14h98bm" name="Manufacturing" />
-            <camunda:value id="Value_1cub3am" name="Procurement" />
-            <camunda:value id="Value_3pr0h69" name="Sales" />
-            <camunda:value id="Value_1u1pl3p" name="Human Resources" />
-          </camunda:formField>
-          <camunda:formField id="vacancyTitle" label="Vacancy Title" type="string" defaultValue="Programmer">
-            <camunda:validation>
-              <camunda:constraint name="readonly" />
-            </camunda:validation>
-          </camunda:formField>
-          <camunda:formField id="vacancySeniorityLevel" label="Seniority Level" type="enum">
-            <camunda:validation>
-              <camunda:constraint name="readonly" />
-            </camunda:validation>
-            <camunda:value id="Value_129g1d3" name="Not applicable" />
-            <camunda:value id="Value_3vt10qh" name="Junior" />
-            <camunda:value id="Value_0fhqgpa" name="Associate" />
-            <camunda:value id="Value_0cgosd5" name="Senior" />
-          </camunda:formField>
-          <camunda:formField id="vacancyJobPensum" label="Job Pensum (%)" type="enum">
-            <camunda:validation>
-              <camunda:constraint name="readonly" />
-            </camunda:validation>
-            <camunda:value id="Value_04toc8c" name="20" />
-            <camunda:value id="Value_1aehic6" name="40" />
-            <camunda:value id="Value_2jfmdbt" name="60" />
-            <camunda:value id="Value_0ci455c" name="80" />
-            <camunda:value id="Value_1jcn52j" name="100" />
-          </camunda:formField>
-          <camunda:formField id="vacancyDescription" label="Vacancy Description" type="string">
-            <camunda:validation>
-              <camunda:constraint name="readonly" />
-            </camunda:validation>
-          </camunda:formField>
-          <camunda:formField id="vacancyRequirements" label="Vacancy Requirements" type="string" defaultValue="JS">
-            <camunda:validation>
-              <camunda:constraint name="readonly" />
-            </camunda:validation>
-          </camunda:formField>
-          <camunda:formField id="vacancyStartDate" label="Vacancy start date" type="date" defaultValue="20/04/2018">
-            <camunda:validation>
-              <camunda:constraint name="readonly" />
-            </camunda:validation>
-          </camunda:formField>
-          <camunda:formField id="vacancyFinalDescription" label="Final Vacancy Description" type="string" />
-        </camunda:formData>
-      </bpmn:extensionElements>
-      <bpmn:incoming>SequenceFlow_1npk1tb</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_0yma7mw</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:exclusiveGateway id="ExclusiveGateway_084px9h" name="Legal or administrative reasons?">
       <bpmn:incoming>SequenceFlow_06xr71l</bpmn:incoming>
@@ -212,7 +154,7 @@
     <bpmn:sequenceFlow id="SequenceFlow_0wlikuw" sourceRef="Task_1erg8r6" targetRef="ExclusiveGateway_04bau3h" />
     <bpmn:exclusiveGateway id="ExclusiveGateway_17m6gg1">
       <bpmn:incoming>SequenceFlow_09k712n</bpmn:incoming>
-      <bpmn:incoming>SequenceFlow_1g2kz50</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_1tx2l6p</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1w7nxv9</bpmn:outgoing>
     </bpmn:exclusiveGateway>
     <bpmn:userTask id="Task_1erg8r6" name="Revise vacancy" camunda:candidateGroups="businessunit">
@@ -260,13 +202,7 @@
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="SequenceFlow_15ful0b" sourceRef="StartEvent_0hy2tvo" targetRef="Task_1rq30fg" />
     <bpmn:sequenceFlow id="SequenceFlow_09k712n" sourceRef="IntermediateThrowEvent_0t6mh7k" targetRef="ExclusiveGateway_17m6gg1" />
-    <bpmn:intermediateThrowEvent id="IntermediateThrowEvent_0s1rnn1" name="Job description sent">
-      <bpmn:incoming>SequenceFlow_0yma7mw</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_1g2kz50</bpmn:outgoing>
-      <bpmn:messageEventDefinition messageRef="Message_1vg8n8a" camunda:expression="${runtimeService.createMessageCorrelation(&#34;Message_A_B_Desc&#34;).setVariables(execution.getVariables()).correlateWithResult()}" />
-    </bpmn:intermediateThrowEvent>
-    <bpmn:sequenceFlow id="SequenceFlow_1g2kz50" sourceRef="IntermediateThrowEvent_0s1rnn1" targetRef="ExclusiveGateway_17m6gg1" />
-    <bpmn:sequenceFlow id="SequenceFlow_0yma7mw" sourceRef="Task_1hkrlux" targetRef="IntermediateThrowEvent_0s1rnn1" />
+    <bpmn:sequenceFlow id="SequenceFlow_0yma7mw" sourceRef="Task_1hkrlux" targetRef="Task_046bxtx" />
     <bpmn:sequenceFlow id="SequenceFlow_0e6wvzm" sourceRef="Task_1opzybv" targetRef="IntermediateThrowEvent_0t6mh7k" />
     <bpmn:sequenceFlow id="SequenceFlow_1tkj5yz" sourceRef="ExclusiveGateway_11iq8si" targetRef="Task_1opzybv" />
     <bpmn:userTask id="Task_1rq30fg" name="Specify vacancy" camunda:candidateGroups="businessunit">
@@ -432,7 +368,7 @@
       <bpmn:outgoing>SequenceFlow_05u579r</bpmn:outgoing>
     </bpmn:parallelGateway>
     <bpmn:sequenceFlow id="SequenceFlow_0xymjn8" sourceRef="ExclusiveGateway_0sccud2" targetRef="Task_1i1bhsa" />
-    <bpmn:userTask id="Task_1i1bhsa" name="Invite candidate for contract negotiation">
+    <bpmn:userTask id="Task_1i1bhsa" name="Inform candidates">
       <bpmn:incoming>SequenceFlow_0xymjn8</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1mwqu02</bpmn:outgoing>
     </bpmn:userTask>
@@ -576,6 +512,69 @@
       <bpmn:outgoing>SequenceFlow_1p5nv68</bpmn:outgoing>
     </bpmn:exclusiveGateway>
     <bpmn:sequenceFlow id="SequenceFlow_1p5nv68" sourceRef="ExclusiveGateway_04bau3h" targetRef="Task_0zd38j1" />
+    <bpmn:sequenceFlow id="SequenceFlow_1tx2l6p" sourceRef="Task_046bxtx" targetRef="ExclusiveGateway_17m6gg1" />
+    <bpmn:userTask id="Task_1hkrlux" name="Write job description" camunda:candidateGroups="hrdepartment">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="businessUnit" label="Business Unit" type="enum">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+            <camunda:value id="Value_2m8fkpm" name="Informatics" />
+            <camunda:value id="Value_14h98bm" name="Manufacturing" />
+            <camunda:value id="Value_1cub3am" name="Procurement" />
+            <camunda:value id="Value_3pr0h69" name="Sales" />
+            <camunda:value id="Value_1u1pl3p" name="Human Resources" />
+          </camunda:formField>
+          <camunda:formField id="vacancyTitle" label="Vacancy Title" type="string" defaultValue="Programmer">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="vacancySeniorityLevel" label="Seniority Level" type="enum">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+            <camunda:value id="Value_129g1d3" name="Not applicable" />
+            <camunda:value id="Value_3vt10qh" name="Junior" />
+            <camunda:value id="Value_0fhqgpa" name="Associate" />
+            <camunda:value id="Value_0cgosd5" name="Senior" />
+          </camunda:formField>
+          <camunda:formField id="vacancyJobPensum" label="Job Pensum (%)" type="enum">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+            <camunda:value id="Value_04toc8c" name="20" />
+            <camunda:value id="Value_1aehic6" name="40" />
+            <camunda:value id="Value_2jfmdbt" name="60" />
+            <camunda:value id="Value_0ci455c" name="80" />
+            <camunda:value id="Value_1jcn52j" name="100" />
+          </camunda:formField>
+          <camunda:formField id="vacancyDescription" label="Vacancy Description" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="vacancyRequirements" label="Vacancy Requirements" type="string" defaultValue="JS">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="vacancyStartDate" label="Vacancy start date" type="date" defaultValue="20/04/2018">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="vacancyFinalDescription" label="Final Vacancy Description" type="string" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1npk1tb</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0yma7mw</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sendTask id="Task_046bxtx" name="Send job description" camunda:expression="${runtimeService.createMessageCorrelation(&#34;Message_A_B_Desc&#34;).setVariables(execution.getVariables()).correlateWithResult()}">
+      <bpmn:incoming>SequenceFlow_0yma7mw</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1tx2l6p</bpmn:outgoing>
+    </bpmn:sendTask>
   </bpmn:process>
   <bpmn:error id="Error_13mm2rl" name="Error_25ms8bo" />
   <bpmn:message id="Message_1vg8n8a" name="Message_A_B_Desc" />
@@ -635,7 +634,7 @@
       <bpmn:outgoing>SequenceFlow_0zrnt1t</bpmn:outgoing>
       <bpmn:messageEventDefinition messageRef="Message_1vg8n8a" />
     </bpmn:startEvent>
-    <bpmn:startEvent id="StartEvent_0v9bev6" name="Timeframe extensions received">
+    <bpmn:startEvent id="StartEvent_0v9bev6" name="Timeframe extension received">
       <bpmn:outgoing>SequenceFlow_0p298w1</bpmn:outgoing>
       <bpmn:messageEventDefinition messageRef="Message_1m3u7ll" />
     </bpmn:startEvent>
@@ -651,6 +650,51 @@
     <bpmn:userTask id="UserTask_1wm84mj" name="Process job description">
       <bpmn:extensionElements>
         <camunda:formData>
+          <camunda:formField id="businessUnit" label="Business Unit" type="enum">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+            <camunda:value id="Value_2m8fkpm" name="Informatics" />
+            <camunda:value id="Value_14h98bm" name="Manufacturing" />
+            <camunda:value id="Value_1cub3am" name="Procurement" />
+            <camunda:value id="Value_3pr0h69" name="Sales" />
+            <camunda:value id="Value_1u1pl3p" name="Human Resources" />
+          </camunda:formField>
+          <camunda:formField id="vacancyTitle" label="Vacancy Title" type="string" defaultValue="Programmer">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="vacancySeniorityLevel" label="Seniority Level" type="enum">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+            <camunda:value id="Value_129g1d3" name="Not applicable" />
+            <camunda:value id="Value_3vt10qh" name="Junior" />
+            <camunda:value id="Value_0fhqgpa" name="Associate" />
+            <camunda:value id="Value_0cgosd5" name="Senior" />
+          </camunda:formField>
+          <camunda:formField id="vacancyJobPensum" label="Job Pensum (%)" type="enum">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+            <camunda:value id="Value_04toc8c" name="20" />
+            <camunda:value id="Value_1aehic6" name="40" />
+            <camunda:value id="Value_2jfmdbt" name="60" />
+            <camunda:value id="Value_0ci455c" name="80" />
+            <camunda:value id="Value_1jcn52j" name="100" />
+          </camunda:formField>
+          <camunda:formField id="vacancyRequirements" label="Vacancy Requirements" type="string" defaultValue="JS">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="vacancyStartDate" label="Vacancy start date" type="date" defaultValue="20/04/2018">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="vacancyFinalDescription" label="Final Vacancy Description" type="string" />
           <camunda:formField id="appliedWithinLastSixMonths" label="Did the applicant apply for this job within the last six months" type="boolean" />
           <camunda:formField id="jobRequirementsMet" label="Are the job requirements met" type="boolean" />
         </camunda:formData>
@@ -711,9 +755,9 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1npk1tb_di" bpmnElement="SequenceFlow_1npk1tb">
         <di:waypoint x="-660" y="1138" />
-        <di:waypoint x="-567" y="1138" />
+        <di:waypoint x="-590" y="1138" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="-623" y="1117" width="19" height="12" />
+          <dc:Bounds x="-634" y="1117" width="19" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="ExclusiveGateway_084px9h_di" bpmnElement="ExclusiveGateway_084px9h" isMarkerVisible="true">
@@ -777,7 +821,7 @@
         <dc:Bounds x="-567" y="761" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="UserTask_0fi22lh_di" bpmnElement="Task_1hkrlux">
-        <dc:Bounds x="-567" y="1098" width="100" height="80" />
+        <dc:Bounds x="-590" y="1098" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="StartEvent_1wvue1q_di" bpmnElement="StartEvent_0hy2tvo">
         <dc:Bounds x="-1109" y="783" width="36" height="36" />
@@ -939,24 +983,11 @@
           <dc:Bounds x="-203" y="820" width="80" height="36" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="IntermediateThrowEvent_0mt9krl_di" bpmnElement="IntermediateThrowEvent_0s1rnn1">
-        <dc:Bounds x="-381" y="1120" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="-402" y="1086" width="77" height="24" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="SequenceFlow_1g2kz50_di" bpmnElement="SequenceFlow_1g2kz50">
-        <di:waypoint x="-345" y="1138" />
-        <di:waypoint x="-266" y="1138" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="-305.5" y="1117" width="0" height="12" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_0yma7mw_di" bpmnElement="SequenceFlow_0yma7mw">
-        <di:waypoint x="-467" y="1138" />
-        <di:waypoint x="-381" y="1138" />
+        <di:waypoint x="-490" y="1138" />
+        <di:waypoint x="-433" y="1138" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="-469" y="1117" width="90" height="12" />
+          <dc:Bounds x="-506.5" y="1117" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Participant_1ejl6nn_di" bpmnElement="Participant_1ejl6nn">
@@ -990,13 +1021,13 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="MessageFlow_1gtuxql_di" bpmnElement="MessageFlow_1gtuxql">
-        <di:waypoint x="-371" y="1154" />
-        <di:waypoint x="-405" y="1222" />
-        <di:waypoint x="-1106" y="1398" />
+        <di:waypoint x="-383" y="1178" />
+        <di:waypoint x="-383" y="1211" />
+        <di:waypoint x="-1106" y="1413" />
         <di:waypoint x="-1106" y="1805" />
         <di:waypoint x="-1051" y="1805" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="-800.5" y="1289" width="90" height="12" />
+          <dc:Bounds x="-789.5" y="1291" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_0p298w1_di" bpmnElement="SequenceFlow_0p298w1">
@@ -1010,7 +1041,7 @@
       <bpmndi:BPMNShape id="StartEvent_09zetuy_di" bpmnElement="StartEvent_0v9bev6">
         <dc:Bounds x="-1051" y="1646" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="-1060" y="1686" width="55" height="36" />
+          <dc:Bounds x="-1059" y="1686" width="53" height="36" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="MessageFlow_15s4grt_di" bpmnElement="MessageFlow_15s4grt">
@@ -1606,6 +1637,16 @@
           <dc:Bounds x="-881" y="1017" width="0" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1tx2l6p_di" bpmnElement="SequenceFlow_1tx2l6p">
+        <di:waypoint x="-333" y="1138" />
+        <di:waypoint x="-266" y="1138" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-299.5" y="1117" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="SendTask_0iyfjeu_di" bpmnElement="Task_046bxtx">
+        <dc:Bounds x="-433" y="1098" width="100" height="80" />
+      </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
