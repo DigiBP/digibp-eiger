@@ -14,7 +14,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.io.IOException;
+import java.io.InputStream;
 
+import org.apache.commons.io.IOUtils;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 
@@ -23,7 +25,7 @@ public class ESignature implements JavaDelegate {
 	// create a byte array that will hold our document bytes
 	byte[] fileBytes = null;
 
-	String pathToDocument = "resources/static/pdf-sample.pdf";
+	//String pathToDocument = "classpath:pdf-sample.pdf";
 
 	public void execute(DelegateExecution execution) throws Exception {
 		//Authentication starts
@@ -80,8 +82,10 @@ public class ESignature implements JavaDelegate {
 			String currentDir = System.getProperty("user.dir");
 			System.out.println(currentDir);
 			// read file from a local directory
-			Path path = Paths.get(pathToDocument);
-			fileBytes = Files.readAllBytes(path);
+			InputStream in = this.getClass().getClassLoader().getResourceAsStream("Employment_Agreement1.pdf");
+			//Path path = Paths.get(pathToDocument);
+			//fileBytes = Files.readAllBytes(path);
+			fileBytes = IOUtils.toByteArray(in);
 		}
 		catch (IOException ioExcp)
 		{
@@ -92,13 +96,13 @@ public class ESignature implements JavaDelegate {
 
 		// create an envelope that will store the document(s), field(s), and recipient(s)
 		EnvelopeDefinition envDef = new EnvelopeDefinition();
-		envDef.setEmailSubject("Employment Contract - please sign");
+		envDef.setEmailSubject("DigiBP Eiger Employment Contract - please sign");
 
 		// add a document to the envelope
 		Document doc = new Document();  
 		String base64Doc = Base64.getEncoder().encodeToString(fileBytes);
 		doc.setDocumentBase64(base64Doc);
-		doc.setName("TestFile"); // can be different from actual file name
+		doc.setName("EmploymentContract"); // can be different from actual file name
 		doc.setFileExtension(".pdf"); // update if different extension!
 		doc.setDocumentId("1");
 
@@ -106,48 +110,56 @@ public class ESignature implements JavaDelegate {
 		docs.add(doc);
 		envDef.setDocuments(docs);
 
-		int yPos = 50;
-		int xPos = 15;
+		int yPos = 427;
+		int xPos = 80;
 		// add a recipient to sign the document, identified by name, email, and recipientId
 		Signer signer1 = new Signer();
 		signer1.setEmail("recruitment.digibpeiger@gmail.com");//put email details 
-		signer1.setName("DigiBP Eiger - HR Manager");
+		signer1.setName("Director of Human Resources, DigiBP Eiger");
 		signer1.setRecipientId("1");
 		signer1.setRoutingOrder("1");
 
 		// create a signHere tab somewhere on the document for the signer to sign
 		// default unit of measurement is pixels, can be mms, cms, inches also
-		SignHere signHere = new SignHere();
-		signHere.setDocumentId("1");
-		signHere.setPageNumber("1");
-		signHere.setRecipientId("1");
-		signHere.setXPosition(""+xPos);
-		signHere.setYPosition(""+yPos);
-		yPos+=50;
+		SignHere signHere1 = new SignHere();
+		signHere1.setDocumentId("1");
+		signHere1.setPageNumber("3");
+		signHere1.setRecipientId("1");
+		signHere1.setXPosition(""+xPos);
+		signHere1.setYPosition(""+yPos);
+		
 
 		// can have multiple tabs, so need to add to envelope as a single element list
-		List<SignHere> signHereTabs = new ArrayList<SignHere>();
-		signHereTabs.add(signHere);
+		List<SignHere> signHereTabs1 = new ArrayList<SignHere>();
+		signHereTabs1.add(signHere1);
 
-		Tabs tabs = new Tabs();
-		tabs.setSignHereTabs(signHereTabs);
-		signer1.setTabs(tabs);
+		Tabs tabs1 = new Tabs();
+		tabs1.setSignHereTabs(signHereTabs1);
+		signer1.setTabs(tabs1);
 
 		//Signer 2
+		yPos = 316;
+		
 		Signer signer2 = new Signer();
 		signer2.setEmail("charutapande@yahoo.co.in");//put email details 
 		signer2.setName("Employee");
 		signer2.setRecipientId("2");
 		signer2.setRoutingOrder("2");
 
-		signHere = new SignHere();
-		signHere.setDocumentId("1");
-		signHere.setPageNumber("1");
-		signHere.setRecipientId("1");
-		signHere.setXPosition(""+xPos);
-		signHere.setYPosition(""+yPos);
+		SignHere signHere2 = new SignHere();
+		signHere2.setDocumentId("1");
+		signHere2.setPageNumber("3");
+		signHere2.setRecipientId("2");
+		signHere2.setXPosition(""+xPos);
+		signHere2.setYPosition(""+yPos);
+		
+		List<SignHere> signHereTabs2 = new ArrayList<SignHere>();
+		signHereTabs2.add(signHere2);
 
-		signHereTabs.add(signHere);
+		Tabs tabs2 = new Tabs();
+		tabs2.setSignHereTabs(signHereTabs2);
+		signer2.setTabs(tabs2);
+
 
 		// add recipients (in this case a single signer) to the envelope
 		envDef.setRecipients(new Recipients());
