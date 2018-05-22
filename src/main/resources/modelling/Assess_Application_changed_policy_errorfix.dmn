@@ -25,7 +25,7 @@
     <authorityRequirement>
       <requiredAuthority href="#KnowledgeSource_0jihyn9" />
     </authorityRequirement>
-    <decisionTable id="decisionTable">
+    <decisionTable id="decisionTable" hitPolicy="ANY">
       <input id="InputClause_0vkrrgl" label="Is the application complete" camunda:inputVariable="">
         <inputExpression id="LiteralExpression_1pr8rhg" typeRef="boolean">
           <text>applicationComplete</text>
