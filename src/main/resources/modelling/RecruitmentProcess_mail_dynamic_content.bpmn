@@ -411,7 +411,7 @@
       <bpmn:endEvent id="EndEvent_1vscomp">
         <bpmn:incoming>SequenceFlow_1l0tkuk</bpmn:incoming>
       </bpmn:endEvent>
-      <bpmn:businessRuleTask id="BusinessRuleTask_05umm1i" name="Process applications" camunda:resultVariable="applicationEligible" camunda:decisionRef="checkApplication" camunda:mapDecisionResult="singleEntry">
+      <bpmn:businessRuleTask id="BusinessRuleTask_05umm1i" name="Process application" camunda:resultVariable="applicationEligible" camunda:decisionRef="checkApplication" camunda:mapDecisionResult="singleEntry">
         <bpmn:incoming>SequenceFlow_0r3icr9</bpmn:incoming>
         <bpmn:outgoing>SequenceFlow_1xeoi4m</bpmn:outgoing>
       </bpmn:businessRuleTask>
@@ -727,10 +727,6 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
       <bpmn:outgoing>SequenceFlow_0p298w1</bpmn:outgoing>
       <bpmn:messageEventDefinition messageRef="Message_1m3u7ll" />
     </bpmn:startEvent>
-    <bpmn:userTask id="Task_0mw5pot" name="Send invoice">
-      <bpmn:incoming>SequenceFlow_0ak0kxo</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_1dykevi</bpmn:outgoing>
-    </bpmn:userTask>
     <bpmn:sequenceFlow id="SequenceFlow_152h1ys" sourceRef="IntermediateThrowEvent_1e62vjy" targetRef="ExclusiveGateway_16h7axt" />
     <bpmn:intermediateThrowEvent id="IntermediateThrowEvent_1e62vjy" name="Applicant  Messaged Notice sent">
       <bpmn:incoming>SequenceFlow_1n1y1hq</bpmn:incoming>
@@ -741,6 +737,27 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
       <bpmn:incoming>SequenceFlow_1kwurmc</bpmn:incoming>
       <bpmn:terminateEventDefinition />
     </bpmn:endEvent>
+    <bpmn:serviceTask id="Task_0mw5pot" name="Send invoice">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="url"><![CDATA[https://prod-13.westeurope.logic.azure.com:443/workflows/32bd9ea2ef34426ba9ec0c2bbfd8f821/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=FUtN6KRzduQVZDELZ7MI7tgFmPg50aR6EXu66lkNyUc]]></camunda:inputParameter>
+            <camunda:inputParameter name="method">POST</camunda:inputParameter>
+            <camunda:inputParameter name="headers">
+              <camunda:map>
+                <camunda:entry key="Content-Type">application/json</camunda:entry>
+              </camunda:map>
+            </camunda:inputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+        <camunda:properties>
+          <camunda:property name="KPI-Ratio" value="Tweet Approved" />
+        </camunda:properties>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0ak0kxo</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1dykevi</bpmn:outgoing>
+    </bpmn:serviceTask>
     <bpmn:userTask id="Task_1l398ct" name="Inform applicants">
       <bpmn:incoming>SequenceFlow_1dk512y</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1n1y1hq</bpmn:outgoing>
@@ -1187,9 +1204,6 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
           <dc:Bounds x="-13.5" y="780" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="UserTask_03k27nf_di" bpmnElement="Task_0mw5pot">
-        <dc:Bounds x="379" y="1765" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="EndEvent_0e4bd54_di" bpmnElement="EndEvent_0e4bd54">
         <dc:Bounds x="527" y="1787" width="36" height="36" />
         <bpmndi:BPMNLabel>
@@ -1583,9 +1597,6 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
           <dc:Bounds x="-274" y="1116" width="0" height="13" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="UserTask_0455aav_di" bpmnElement="Task_1l398ct">
-        <dc:Bounds x="-657" y="1700" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="ServiceTask_18hflm5_di" bpmnElement="Task_1qo15t7">
         <dc:Bounds x="2454" y="1052" width="100" height="80" />
       </bpmndi:BPMNShape>
@@ -1654,6 +1665,12 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
           <dc:Bounds x="9" y="1117" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_00tgc6b_di" bpmnElement="Task_0mw5pot">
+        <dc:Bounds x="379" y="1765" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_1uetelo_di" bpmnElement="Task_1l398ct">
+        <dc:Bounds x="-657" y="1700" width="100" height="80" />
+      </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
