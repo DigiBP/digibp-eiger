@@ -239,10 +239,10 @@
       <bpmn:messageEventDefinition messageRef="Message_1gvl6d6" camunda:expression="${runtimeService.createMessageCorrelation(&#34;Message_A_B_fNotice&#34;).setVariables(execution.getVariables()).correlateWithResult()}" />
     </bpmn:intermediateThrowEvent>
     <bpmn:sequenceFlow id="SequenceFlow_04jnkzp" name="true" sourceRef="ExclusiveGateway_181wftg" targetRef="SubProcess_06015p8">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{applicationsReceived == true}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[${processVariableResponse >= 0}]]></bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_17nl1ku" name="false" sourceRef="ExclusiveGateway_181wftg" targetRef="IntermediateThrowEvent_1trkwtf">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{applicationsReceived == false}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${processVariableResponse == 0}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_1el7cbm" name="Yes" sourceRef="ExclusiveGateway_0bacahe" targetRef="IntermediateCatchEvent_1jl2hlc">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${candidateDecision == true}</bpmn:conditionExpression>
@@ -385,7 +385,7 @@
       <bpmn:incoming>SequenceFlow_04jnkzp</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_183qsgf</bpmn:outgoing>
       <bpmn:multiInstanceLoopCharacteristics isSequential="true">
-        <bpmn:loopCardinality xsi:type="bpmn:tFormalExpression">${numberOfApplications}</bpmn:loopCardinality>
+        <bpmn:loopCardinality xsi:type="bpmn:tFormalExpression">${processVariableResponse}</bpmn:loopCardinality>
       </bpmn:multiInstanceLoopCharacteristics>
       <bpmn:startEvent id="StartEvent_0wo755u">
         <bpmn:outgoing>SequenceFlow_100l31d</bpmn:outgoing>
@@ -655,17 +655,28 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
       <bpmn:incoming>SequenceFlow_0wlikuw</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1p5nv68</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:userTask id="Task_145awc7" name="Check for applications" camunda:formKey="embedded:app:forms/applicationsReceived.html">
+    <bpmn:sequenceFlow id="SequenceFlow_0wvxo4z" sourceRef="Task_145awc7" targetRef="ExclusiveGateway_181wftg" />
+    <bpmn:serviceTask id="Task_145awc7" name="Check for applications" camunda:modelerTemplate="digibp.connector.http.nobody">
       <bpmn:extensionElements>
-        <camunda:formData>
-          <camunda:formField id="applicationsReceived" label="Were applications received?" type="boolean" defaultValue="true" />
-          <camunda:formField id="numberOfApplications" label="How many were received?" type="long" />
-        </camunda:formData>
+        <camunda:connector inout="">
+          <camunda:inputOutput>
+            <camunda:inputParameter name="method">GET</camunda:inputParameter>
+            <camunda:inputParameter name="url">https://hook.integromat.com/b4hvfd7xol8cq5rn3l9ca1lqz9x8p1s1</camunda:inputParameter>
+            <camunda:outputParameter name="processVariableResponse">
+              <camunda:script scriptFormat="JavaScript"><![CDATA[object = JSON.parse(response);
+processVariableResponse = object.amount;]]></camunda:script>
+            </camunda:outputParameter>
+            <camunda:outputParameter name="sheetURL">
+              <camunda:script scriptFormat="JavaScript"><![CDATA[object = JSON.parse(response);
+sheetURL = object.sheetURL;]]></camunda:script>
+            </camunda:outputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_0xiic16</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0wvxo4z</bpmn:outgoing>
-    </bpmn:userTask>
-    <bpmn:sequenceFlow id="SequenceFlow_0wvxo4z" sourceRef="Task_145awc7" targetRef="ExclusiveGateway_181wftg" />
+    </bpmn:serviceTask>
   </bpmn:process>
   <bpmn:error id="Error_13mm2rl" name="Error_25ms8bo" />
   <bpmn:message id="Message_1vg8n8a" name="Message_A_B_Desc" />
@@ -1655,9 +1666,6 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
           <dc:Bounds x="1561" y="1445" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="UserTask_058prtz_di" bpmnElement="Task_145awc7">
-        <dc:Bounds x="-55" y="1098" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0wvxo4z_di" bpmnElement="SequenceFlow_0wvxo4z">
         <di:waypoint x="45" y="1138" />
         <di:waypoint x="63" y="1138" />
@@ -1670,6 +1678,9 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="UserTask_1uetelo_di" bpmnElement="Task_1l398ct">
         <dc:Bounds x="-657" y="1700" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1xbbes9_di" bpmnElement="Task_145awc7">
+        <dc:Bounds x="-55" y="1098" width="100" height="80" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
