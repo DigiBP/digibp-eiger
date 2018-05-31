@@ -33,7 +33,6 @@
         <bpmn:flowNodeRef>IntermediateThrowEvent_1trkwtf</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>IntermediateThrowEvent_1uzk3z9</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ExclusiveGateway_0bacahe</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>SubProcess_06015p8</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>IntermediateThrowEvent_0fuag0k</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ExclusiveGateway_17m6gg1</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>IntermediateThrowEvent_03f3b1y</bpmn:flowNodeRef>
@@ -57,6 +56,7 @@
         <bpmn:flowNodeRef>ExclusiveGateway_0xyfpex</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ServiceTask_0ppucnb</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>IntermediateCatchEvent_1jl2hlc</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>SubProcess_06015p8</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_179zgue" name="Evaluation Team">
         <bpmn:flowNodeRef>SubProcess_0qiukuo</bpmn:flowNodeRef>
@@ -230,6 +230,7 @@
             <camunda:formField id="experienceSufficient" label="Has the candidate sufficient experience" type="boolean" defaultValue="false" />
             <camunda:formField id="eligibleDegree" label="Is the degree eligible" type="boolean" defaultValue="false" />
             <camunda:formField id="languageRequriementsMatch" label="Do the language requirements match" type="boolean" defaultValue="false" />
+            <camunda:formField id="candidateFolderLink" label="asdasd" type="string" />
           </camunda:formData>
         </bpmn:extensionElements>
         <bpmn:incoming>SequenceFlow_1ielpmi</bpmn:incoming>
@@ -257,6 +258,10 @@ out = JSON.stringify({
               <camunda:outputParameter name="candidateId">
                 <camunda:script scriptFormat="JavaScript"><![CDATA[object = JSON.parse(response);
 candidateId = object.from;]]></camunda:script>
+              </camunda:outputParameter>
+              <camunda:outputParameter name="candidateFolderLink">
+                <camunda:script scriptFormat="JavaScript"><![CDATA[object = JSON.parse(response);
+candidateId = object.attachment;]]></camunda:script>
               </camunda:outputParameter>
             </camunda:inputOutput>
             <camunda:connectorId>http-connector</camunda:connectorId>
@@ -1345,7 +1350,7 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="BusinessRuleTask_05umm1i_di" bpmnElement="BusinessRuleTask_05umm1i">
-        <dc:Bounds x="510" y="1100" width="100" height="80" />
+        <dc:Bounds x="562" y="1100" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="SubProcess_06015p8_di" bpmnElement="SubProcess_06015p8" isExpanded="true">
         <dc:Bounds x="163" y="983" width="962" height="309" />
@@ -1358,9 +1363,9 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_100l31d_di" bpmnElement="SequenceFlow_100l31d">
         <di:waypoint x="218" y="1140" />
-        <di:waypoint x="222" y="1140" />
+        <di:waypoint x="264" y="1140" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="175" y="1119" width="90" height="12" />
+          <dc:Bounds x="196" y="1119" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="EndEvent_1vscomp_di" bpmnElement="EndEvent_1vscomp">
@@ -1370,13 +1375,13 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="UserTask_0gofd3h_di" bpmnElement="UserTask_0gofd3h">
-        <dc:Bounds x="661" y="1100" width="100" height="80" />
+        <dc:Bounds x="695" y="1100" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_183qsgf_di" bpmnElement="SequenceFlow_183qsgf">
         <di:waypoint x="1125" y="1140" />
         <di:waypoint x="1161" y="1139" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1098" y="1118.5" width="90" height="12" />
+          <dc:Bounds x="1098" y="1119" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="SubProcess_0qiukuo_di" bpmnElement="SubProcess_0qiukuo" isExpanded="true">
@@ -1409,13 +1414,13 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="UserTask_0d114ma_di" bpmnElement="UserTask_0d114ma">
-        <dc:Bounds x="363" y="1100" width="100" height="80" />
+        <dc:Bounds x="407" y="1100" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0r3icr9_di" bpmnElement="SequenceFlow_0r3icr9">
-        <di:waypoint x="463" y="1140" />
-        <di:waypoint x="510" y="1140" />
+        <di:waypoint x="507" y="1140" />
+        <di:waypoint x="562" y="1140" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="441.5" y="1119" width="90" height="12" />
+          <dc:Bounds x="489.5" y="1119" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_085rcx9_di" bpmnElement="SequenceFlow_085rcx9">
@@ -1776,20 +1781,20 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_1ielpmi_di" bpmnElement="SequenceFlow_1ielpmi">
-        <di:waypoint x="336" y="1140" />
-        <di:waypoint x="363" y="1140" />
+        <di:waypoint x="364" y="1140" />
+        <di:waypoint x="407" y="1140" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="304.5" y="1119" width="90" height="12" />
+          <dc:Bounds x="341" y="1119" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="ServiceTask_0fhtftk_di" bpmnElement="Task_0znremj">
-        <dc:Bounds x="236" y="1100" width="100" height="80" />
+        <dc:Bounds x="264" y="1100" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1u0ek1j_di" bpmnElement="SequenceFlow_1u0ek1j">
-        <di:waypoint x="610" y="1140" />
-        <di:waypoint x="661" y="1140" />
+        <di:waypoint x="662" y="1140" />
+        <di:waypoint x="695" y="1140" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="635.5" y="1118.5" width="0" height="13" />
+          <dc:Bounds x="633.5" y="1118.5" width="90" height="13" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_1acdv57_di" bpmnElement="SequenceFlow_1acdv57">
@@ -1810,10 +1815,10 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1rsw8fg_di" bpmnElement="SequenceFlow_1rsw8fg">
-        <di:waypoint x="761" y="1140" />
+        <di:waypoint x="795" y="1140" />
         <di:waypoint x="853" y="1140" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="807" y="1118.5" width="0" height="13" />
+          <dc:Bounds x="779" y="1118.5" width="90" height="13" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_0b6v0v7_di" bpmnElement="SequenceFlow_0b6v0v7">
