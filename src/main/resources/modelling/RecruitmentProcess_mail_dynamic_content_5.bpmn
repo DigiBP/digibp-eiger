@@ -261,7 +261,7 @@ candidateId = object.from;]]></camunda:script>
               </camunda:outputParameter>
               <camunda:outputParameter name="candidateFolderLink">
                 <camunda:script scriptFormat="JavaScript"><![CDATA[object = JSON.parse(response);
-candidateId = object.attachment;]]></camunda:script>
+candidateFolderLink= object.attachment;]]></camunda:script>
               </camunda:outputParameter>
             </camunda:inputOutput>
             <camunda:connectorId>http-connector</camunda:connectorId>
