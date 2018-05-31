@@ -451,7 +451,7 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
         <camunda:connector inout="">
           <camunda:inputOutput>
             <camunda:inputParameter name="method">GET</camunda:inputParameter>
-            <camunda:inputParameter name="url">https://hook.integromat.com/b4hvfd7xol8cq5rn3l9ca1lqz9x8p1s1</camunda:inputParameter>
+            <camunda:inputParameter name="url">https://hook.integromat.com/iytan5k81aqcuy5h4ywg9odvjxui5c8n</camunda:inputParameter>
             <camunda:outputParameter name="processVariableResponse">
               <camunda:script scriptFormat="JavaScript"><![CDATA[object = JSON.parse(response);
 processVariableResponse = object.amount;]]></camunda:script>
