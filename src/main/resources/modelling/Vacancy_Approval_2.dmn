@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" id="Definitions_00p07fa" name="DRD" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="vacancyApproval" name="Decision 1">
+    <extensionElements>
+      <biodi:bounds x="150" y="150" width="180" height="80" />
+    </extensionElements>
+    <decisionTable id="decisionTable_1">
+      <input id="InputClause_0kw1a9y" label="Funds Available">
+        <inputExpression id="LiteralExpression_19tu2nb" typeRef="boolean">
+          <text>fundsAvailable</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1h719rd" label="Headcount eligible for quarter">
+        <inputExpression id="LiteralExpression_1eg7585" typeRef="boolean">
+          <text>headCountEligible</text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="Vacancy Approval" name="vacancyApproved" typeRef="boolean" />
+      <rule id="DecisionRule_1l300cp">
+        <inputEntry id="UnaryTests_1jfe43u">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r5mkzk">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1a6mphm">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1wlc68d">
+        <inputEntry id="UnaryTests_1375aot">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uu52jt">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06pp9ob">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0e2nf2i">
+        <inputEntry id="UnaryTests_1opl50x">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kbcu34">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0sv43my">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1qk4nvi">
+        <inputEntry id="UnaryTests_17rsl8a">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0uspyfp">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0jm49zk">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
