@@ -141,7 +141,9 @@ public class ESignature implements JavaDelegate {
 		yPos = 316;
 		
 		Signer signer2 = new Signer();
-		signer2.setEmail("charutapande@yahoo.co.in");//put email details 
+		String candidateEmail = execution.getVariable("finalCandidateId").toString();
+		System.out.println("Final candidate id: " + candidateEmail);
+		signer2.setEmail(candidateEmail);//put email details 
 		signer2.setName("Employee");
 		signer2.setRecipientId("2");
 		signer2.setRoutingOrder("2");
