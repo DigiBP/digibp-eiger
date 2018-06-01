@@ -512,7 +512,7 @@ sheetURL = object.sheetURL;]]></camunda:script>
           </camunda:formField>
           <camunda:formField id="vacancyDescription" label="Vacancy Description" type="string" />
           <camunda:formField id="vacancyRequirements" label="Vacancy Requirements" type="string" />
-          <camunda:formField id="vacancyStartDate" label="Vacancy start date" type="date" />
+          <camunda:formField id="vacancyStartDate" label="Vacancy Start Date" type="date" />
           <camunda:formField id="vacancyOwnerName" label="Contact Name" type="string" />
           <camunda:formField id="vacancyOwnerEmail" label="Contact Email" type="string" />
         </camunda:formData>
@@ -628,7 +628,7 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
               <camunda:constraint name="readonly" />
             </camunda:validation>
           </camunda:formField>
-          <camunda:formField id="vacancyStartDate" label="Vacancy start date" type="date">
+          <camunda:formField id="vacancyStartDate" label="Vacancy Start Date" type="date">
             <camunda:validation>
               <camunda:constraint name="readonly" />
             </camunda:validation>
@@ -865,7 +865,7 @@ noCandidateForInterview = object.rowNum;]]></camunda:script>
             <camunda:inputParameter name="text">
               <camunda:script scriptFormat="freemarker"><![CDATA[Dear ${vacancyOwnerName},
 
-You have been listed as the owner of the vacancy "${vacancyTitle}". Your vacancy has been approved; however, our department has identified a need for a better specification. Please, find our point(s) of improvement in your task list: https://digibp-eiger.herokuapp.com/app/tasklist/default
+You have been listed as the owner of the vacancy "${vacancyTitle}". Your vacancy has been approved; however, our department has identified a need for a better specification. Please, find our point(s) of improvement in your task list: https://digibp-eiger.herokuapp.com/app/tasklist/default/#/
 
 
 Best regards,
