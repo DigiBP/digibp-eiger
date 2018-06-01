@@ -1,0 +1,73 @@
+
+<iframe id="myFrame" src="https://drive.google.com" style="width:100%; height:250px; border:0;"></iframe>
+
+
+<form role="form">  
+ 
+
+
+ <div class="form-group">
+ 
+<label for="applicationComplete">Is the application complete?</label>
+<input type="checkbox" class="form-control"
+       cam-variable-name="applicationComplete"
+       cam-variable-type="Boolean" />
+</div>
+
+
+
+
+
+ <div class="form-group">
+<label for="experienceSufficient">Is the experience sufficient?</label>
+<input type="text" class="form-control" 
+       cam-variable-name="vacancyRequirements"
+       cam-variable-type="String" disabled/>
+
+<input type="checkbox" class="form-control"
+       cam-variable-name="experienceSufficient"
+       cam-variable-type="Boolean" />
+	   </div>
+	   
+	   
+	   
+	
+
+ <div class="form-group">	
+ <label for="eligibleDegree">Is the degree eligible?</label>
+<input type="checkbox" class="form-control"
+       cam-variable-name="eligibleDegree"
+       cam-variable-type="Boolean" />
+	   	   </div>
+		 
+ <div class="form-group">		 
+<label for="languageRequriementsMatch">Do the language requirements match?</label>
+<input type="checkbox" class="form-control" 
+       cam-variable-name="languageRequriementsMatch"
+       cam-variable-type="Boolean" />
+	   </div>
+
+	    <div class="form-group">
+<input type="hidden" class="form-control"
+       cam-variable-name="candidateFolderLink"
+       cam-variable-type="String"/>
+		  </div>
+		 
+ <script cam-script type="text/form-script">
+    var variableManager = camForm.variableManager;
+    var customField = $('#customField', camForm.formElement);
+
+	    camForm.on('variables-fetched', function() {
+      // value has been fetched from the backend
+      var value = variableManager.variableValue('candidateFolderLink');
+      // write the variable value to the form field
+      customField.val(value);
+	  var url = "https://drive.google.com/embeddedfolderview?id="+value+"#list";
+	  document.getElementById("myFrame").src = url; 
+	   });
+</script
+      </form>
+
+		  
+
+	  
