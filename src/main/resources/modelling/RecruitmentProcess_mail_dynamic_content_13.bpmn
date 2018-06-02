@@ -19,17 +19,16 @@
         <bpmn:flowNodeRef>IntermediateThrowEvent_0t6mh7k</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>EndEvent_074tom3</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>IntermediateCatchEvent_1t3189f</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_0x2z9y2</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_1opzybv</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>StartEvent_0hy2tvo</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_1rq30fg</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_1erg8r6</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_1rq30fg</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_0x2z9y2</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_145tuw1" name="HR Department">
         <bpmn:flowNodeRef>ExclusiveGateway_181wftg</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ExclusiveGateway_0ja1r37</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_0r54o7m</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>ExclusiveGateway_0sccud2</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>IntermediateThrowEvent_1trkwtf</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>IntermediateThrowEvent_1uzk3z9</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>IntermediateThrowEvent_0fuag0k</bpmn:flowNodeRef>
@@ -40,7 +39,6 @@
         <bpmn:flowNodeRef>Task_1lh7xjc</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ExclusiveGateway_0bnl4vc</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_1xm2plc</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_1i1bhsa</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>IntermediateThrowEvent_1c9dqe9</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_145awc7</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ServiceTask_0n07acs</bpmn:flowNodeRef>
@@ -55,8 +53,10 @@
         <bpmn:flowNodeRef>SubProcess_06015p8</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>IntermediateCatchEvent_1jl2hlc</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ExclusiveGateway_0bacahe</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_1hu46nq</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_0h2hc55</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_1hu46nq</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ExclusiveGateway_0sccud2</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_0xrqgyv</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_179zgue" name="Evaluation Team">
         <bpmn:flowNodeRef>Task_1whmrcs</bpmn:flowNodeRef>
@@ -157,14 +157,8 @@
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow_12ibyuc" sourceRef="Task_0x2z9y2" targetRef="EndEvent_074tom3" />
     <bpmn:sequenceFlow id="SequenceFlow_1z01hk8" sourceRef="ExclusiveGateway_0sccud2" targetRef="Task_1xm2plc" />
-    <bpmn:parallelGateway id="ExclusiveGateway_0sccud2">
-      <bpmn:incoming>SequenceFlow_085rcx9</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_1z01hk8</bpmn:outgoing>
-      <bpmn:outgoing>SequenceFlow_0xymjn8</bpmn:outgoing>
-    </bpmn:parallelGateway>
     <bpmn:sequenceFlow id="SequenceFlow_05u579r" sourceRef="ExclusiveGateway_0bnl4vc" targetRef="Task_1lh7xjc" />
-    <bpmn:sequenceFlow id="SequenceFlow_0xymjn8" sourceRef="ExclusiveGateway_0sccud2" targetRef="Task_1i1bhsa" />
-    <bpmn:sequenceFlow id="SequenceFlow_1mwqu02" sourceRef="Task_1i1bhsa" targetRef="ExclusiveGateway_0bnl4vc" />
+    <bpmn:sequenceFlow id="SequenceFlow_0xymjn8" sourceRef="ExclusiveGateway_0sccud2" targetRef="ExclusiveGateway_0bnl4vc" />
     <bpmn:sequenceFlow id="SequenceFlow_0dol115" sourceRef="IntermediateCatchEvent_1jl2hlc" targetRef="Task_1whmrcs" />
     <bpmn:sequenceFlow id="SequenceFlow_0yx2n14" sourceRef="IntermediateCatchEvent_1t3189f" targetRef="Task_0x2z9y2" />
     <bpmn:intermediateCatchEvent id="IntermediateCatchEvent_1t3189f" name="First day of employee arrived">
@@ -174,10 +168,6 @@
         <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT5S</bpmn:timeDuration>
       </bpmn:timerEventDefinition>
     </bpmn:intermediateCatchEvent>
-    <bpmn:userTask id="Task_0x2z9y2" name="Onboard employee" camunda:candidateGroups="businessunit">
-      <bpmn:incoming>SequenceFlow_0yx2n14</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_12ibyuc</bpmn:outgoing>
-    </bpmn:userTask>
     <bpmn:intermediateThrowEvent id="IntermediateThrowEvent_1trkwtf" name="Failure Notice sent">
       <bpmn:incoming>SequenceFlow_17nl1ku</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1yo8kjl</bpmn:outgoing>
@@ -379,7 +369,7 @@ DigiBP Recruitment Team]]></camunda:script>
             <camunda:inputParameter name="subject">Recruitment at DigiBP Eiger</camunda:inputParameter>
             <camunda:inputParameter name="text"><![CDATA[Hello,
 
-This is to inform you that we have not yet found a suitable candidate to fill the position. We are open to receiving more applications till 30th June 2018.
+This is to inform you that we have not yet found a suitable candidate to fill the position ${vacancyTitle}. Please, inform future potential candidates as soon as they join your talent pool.
 
 Thank you for your support.
 
@@ -418,8 +408,9 @@ DigiBP Eiger Recruitment Team]]></camunda:inputParameter>
       <bpmn:outgoing>SequenceFlow_14css30</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:parallelGateway id="ExclusiveGateway_0bnl4vc">
-      <bpmn:incoming>SequenceFlow_1mwqu02</bpmn:incoming>
       <bpmn:incoming>SequenceFlow_0s15tup</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_0xymjn8</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_1xv6hai</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_05u579r</bpmn:outgoing>
     </bpmn:parallelGateway>
     <bpmn:sequenceFlow id="SequenceFlow_0s15tup" sourceRef="IntermediateThrowEvent_1c9dqe9" targetRef="ExclusiveGateway_0bnl4vc" />
@@ -427,7 +418,7 @@ DigiBP Eiger Recruitment Team]]></camunda:inputParameter>
       <bpmn:extensionElements>
         <camunda:connector>
           <camunda:inputOutput>
-            <camunda:inputParameter name="to">charutapande@yahoo.co.in</camunda:inputParameter>
+            <camunda:inputParameter name="to">ys.recruitmentpartner@gmail.com</camunda:inputParameter>
             <camunda:inputParameter name="subject">Recruitment at DigiBP Eiger</camunda:inputParameter>
             <camunda:inputParameter name="text">
               <camunda:script scriptFormat="freemarker"><![CDATA[Hello,
@@ -449,10 +440,6 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
       <bpmn:incoming>SequenceFlow_1z01hk8</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0w03mnv</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:userTask id="Task_1i1bhsa" name="Inform candidates">
-      <bpmn:incoming>SequenceFlow_0xymjn8</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_1mwqu02</bpmn:outgoing>
-    </bpmn:userTask>
     <bpmn:intermediateThrowEvent id="IntermediateThrowEvent_1c9dqe9" name="Agency informed">
       <bpmn:incoming>SequenceFlow_0w03mnv</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0s15tup</bpmn:outgoing>
@@ -486,40 +473,6 @@ sheetURL = object.sheetURL;]]></camunda:script>
       </bpmn:extensionElements>
       <bpmn:outgoing>SequenceFlow_15ful0b</bpmn:outgoing>
     </bpmn:startEvent>
-    <bpmn:userTask id="Task_1rq30fg" name="Specify vacancy" camunda:candidateGroups="businessunit">
-      <bpmn:extensionElements>
-        <camunda:formData>
-          <camunda:formField id="businessUnit" label="Business Unit" type="enum">
-            <camunda:value id="Informatics" name="Informatics" />
-            <camunda:value id="Manufacturing" name="Manufacturing" />
-            <camunda:value id="Procurement" name="Procurement" />
-            <camunda:value id="Sales" name="Sales" />
-            <camunda:value id="Human_Resources" name="Human Resources" />
-          </camunda:formField>
-          <camunda:formField id="vacancyTitle" label="Vacancy Title" type="string" />
-          <camunda:formField id="vacancySeniorityLevel" label="Seniority Level" type="enum">
-            <camunda:value id="Not_applicable" name="Not applicable" />
-            <camunda:value id="Junior" name="Junior" />
-            <camunda:value id="Associate" name="Associate" />
-            <camunda:value id="Senior" name="Senior" />
-          </camunda:formField>
-          <camunda:formField id="vacancyJobPensum" label="Job Pensum (%)" type="enum">
-            <camunda:value id="Twenty" name="Twenty" />
-            <camunda:value id="Fourty" name="Fourty" />
-            <camunda:value id="Sixty" name="Sixty" />
-            <camunda:value id="Eighty" name="Eighty" />
-            <camunda:value id="Hundred" name="Hundred" />
-          </camunda:formField>
-          <camunda:formField id="vacancyDescription" label="Vacancy Description" type="string" />
-          <camunda:formField id="vacancyRequirements" label="Vacancy Requirements" type="string" />
-          <camunda:formField id="vacancyStartDate" label="Vacancy Start Date" type="date" />
-          <camunda:formField id="vacancyOwnerName" label="Contact Name" type="string" />
-          <camunda:formField id="vacancyOwnerEmail" label="Contact Email" type="string" />
-        </camunda:formData>
-      </bpmn:extensionElements>
-      <bpmn:incoming>SequenceFlow_15ful0b</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_028ooau</bpmn:outgoing>
-    </bpmn:userTask>
     <bpmn:sequenceFlow id="SequenceFlow_1ghpjg9" sourceRef="ServiceTask_0n07acs" targetRef="Task_0dzm22g" />
     <bpmn:sequenceFlow id="SequenceFlow_04jwra8" sourceRef="Task_0dzm22g" targetRef="ExclusiveGateway_1hde11m" />
     <bpmn:sequenceFlow id="SequenceFlow_09hcfz5" name="false" sourceRef="ExclusiveGateway_1hde11m" targetRef="Task_0avotrk">
@@ -801,6 +754,76 @@ noCandidateForInterview = object.rowNum;]]></camunda:script>
       <bpmn:outgoing>SequenceFlow_1rlgzon</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:sequenceFlow id="SequenceFlow_1a79usg" sourceRef="Task_10gbrci" targetRef="ExclusiveGateway_0ja1r37" />
+    <bpmn:sequenceFlow id="SequenceFlow_12ohy24" sourceRef="Task_0h2hc55" targetRef="Task_1erg8r6" />
+    <bpmn:userTask id="Task_10gbrci" name="Evaluate Candidates" camunda:formKey="embedded:app:forms/evaluateCandidate.html">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="evaluateCandidate" label="Is atleast one candidate suitable?" type="boolean" defaultValue="true" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1khu9pz</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1a79usg</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_1rq30fg" name="Specify vacancy" camunda:candidateGroups="businessunit">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="businessUnit" label="Business Unit" type="enum">
+            <camunda:value id="Informatics" name="Informatics" />
+            <camunda:value id="Manufacturing" name="Manufacturing" />
+            <camunda:value id="Procurement" name="Procurement" />
+            <camunda:value id="Sales" name="Sales" />
+            <camunda:value id="Human_Resources" name="Human Resources" />
+          </camunda:formField>
+          <camunda:formField id="vacancyTitle" label="Vacancy Title" type="string" />
+          <camunda:formField id="vacancySeniorityLevel" label="Seniority Level" type="enum">
+            <camunda:value id="Not_applicable" name="Not applicable" />
+            <camunda:value id="Junior" name="Junior" />
+            <camunda:value id="Associate" name="Associate" />
+            <camunda:value id="Senior" name="Senior" />
+          </camunda:formField>
+          <camunda:formField id="vacancyJobPensum" label="Job Pensum (%)" type="enum">
+            <camunda:value id="Twenty" name="Twenty" />
+            <camunda:value id="Fourty" name="Fourty" />
+            <camunda:value id="Sixty" name="Sixty" />
+            <camunda:value id="Eighty" name="Eighty" />
+            <camunda:value id="Hundred" name="Hundred" />
+          </camunda:formField>
+          <camunda:formField id="vacancyDescription" label="Vacancy Description" type="string" />
+          <camunda:formField id="vacancyRequirements" label="Vacancy Requirements" type="string" />
+          <camunda:formField id="vacancyStartDate" label="Vacancy Start Date" type="date" />
+          <camunda:formField id="vacancyOwnerName" label="Contact Name" type="string" />
+          <camunda:formField id="vacancyOwnerEmail" label="Contact Email" type="string" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_15ful0b</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_028ooau</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_0x2z9y2" name="Onboard employee" camunda:candidateGroups="businessunit">
+      <bpmn:incoming>SequenceFlow_0yx2n14</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_12ibyuc</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="Task_0h2hc55" name="Send notification e-mail">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="to">${vacancyOwnerEmail}</camunda:inputParameter>
+            <camunda:inputParameter name="subject"><![CDATA[Job Vacancy "${vacancyTitle}" requires changes]]></camunda:inputParameter>
+            <camunda:inputParameter name="text">
+              <camunda:script scriptFormat="freemarker"><![CDATA[Dear ${vacancyOwnerName},
+
+You have been listed as the owner of the vacancy "${vacancyTitle}". Your vacancy has been approved; however, our department has identified a need for a better specification. Please, find our point(s) of improvement in your task list: https://digibp-eiger.herokuapp.com/app/tasklist/default/#/
+
+
+Best regards,
+DigiBP Eiger Recruitment Team]]></camunda:script>
+            </camunda:inputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>mail-send</camunda:connectorId>
+        </camunda:connector>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1e659e7</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_12ohy24</bpmn:outgoing>
+    </bpmn:serviceTask>
     <bpmn:userTask id="Task_1hu46nq" name="Specify point(s) of improvement" camunda:candidateGroups="hrdepartment">
       <bpmn:extensionElements>
         <camunda:formData>
@@ -855,38 +878,40 @@ noCandidateForInterview = object.rowNum;]]></camunda:script>
       <bpmn:incoming>SequenceFlow_12gl0ld</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1e659e7</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:sequenceFlow id="SequenceFlow_12ohy24" sourceRef="Task_0h2hc55" targetRef="Task_1erg8r6" />
-    <bpmn:serviceTask id="Task_0h2hc55" name="Send notification e-mail">
+    <bpmn:parallelGateway id="ExclusiveGateway_0sccud2">
+      <bpmn:incoming>SequenceFlow_085rcx9</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1z01hk8</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_0xymjn8</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_13v2fd5</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:sequenceFlow id="SequenceFlow_13v2fd5" sourceRef="ExclusiveGateway_0sccud2" targetRef="Task_0xrqgyv" />
+    <bpmn:sequenceFlow id="SequenceFlow_1xv6hai" sourceRef="Task_0xrqgyv" targetRef="ExclusiveGateway_0bnl4vc" />
+    <bpmn:serviceTask id="Task_0xrqgyv" name="Inform selected candidate">
       <bpmn:extensionElements>
         <camunda:connector>
           <camunda:inputOutput>
-            <camunda:inputParameter name="to">${vacancyOwnerEmail}</camunda:inputParameter>
-            <camunda:inputParameter name="subject"><![CDATA[Job Vacancy "${vacancyTitle}" requires changes]]></camunda:inputParameter>
+            <camunda:inputParameter name="to">${finalCandidateId}</camunda:inputParameter>
+            <camunda:inputParameter name="subject">DigiBP Eiger - Job Offer</camunda:inputParameter>
             <camunda:inputParameter name="text">
-              <camunda:script scriptFormat="freemarker"><![CDATA[Dear ${vacancyOwnerName},
+              <camunda:script scriptFormat="freemarker"><![CDATA[Dear ${finalCandidateId},
 
-You have been listed as the owner of the vacancy "${vacancyTitle}". Your vacancy has been approved; however, our department has identified a need for a better specification. Please, find our point(s) of improvement in your task list: https://digibp-eiger.herokuapp.com/app/tasklist/default/#/
+We are happy to inform you that you have been accepted for the position "${vacancyTitle}". 
 
+We invite you for a discussion with our HR representative for finalizing the contract details on 11th June 2018, 10 am. If the date and time is not suitable, please contact us at recruitment.digibpeiger@gmail.com to schedule a new appointment.
 
-Best regards,
-DigiBP Eiger Recruitment Team]]></camunda:script>
+Yours sincerely,
+DigiBP Recruitment Team]]></camunda:script>
+            </camunda:inputParameter>
+            <camunda:inputParameter name="fileList">
+              <camunda:list />
             </camunda:inputParameter>
           </camunda:inputOutput>
           <camunda:connectorId>mail-send</camunda:connectorId>
         </camunda:connector>
       </bpmn:extensionElements>
-      <bpmn:incoming>SequenceFlow_1e659e7</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_12ohy24</bpmn:outgoing>
+      <bpmn:incoming>SequenceFlow_13v2fd5</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1xv6hai</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:userTask id="Task_10gbrci" name="Evaluate Candidates" camunda:formKey="embedded:app:forms/evaluateCandidate.html">
-      <bpmn:extensionElements>
-        <camunda:formData>
-          <camunda:formField id="evaluateCandidate" label="Is atleast one candidate suitable?" type="boolean" defaultValue="true" />
-        </camunda:formData>
-      </bpmn:extensionElements>
-      <bpmn:incoming>SequenceFlow_1khu9pz</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_1a79usg</bpmn:outgoing>
-    </bpmn:userTask>
   </bpmn:process>
   <bpmn:error id="Error_13mm2rl" name="Error_25ms8bo" />
   <bpmn:message id="Message_1vg8n8a" name="Message_A_B_Desc" />
@@ -958,6 +983,10 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
       <bpmn:incoming>SequenceFlow_1kwurmc</bpmn:incoming>
       <bpmn:terminateEventDefinition />
     </bpmn:endEvent>
+    <bpmn:userTask id="Task_1l398ct" name="Inform applicants">
+      <bpmn:incoming>SequenceFlow_1dk512y</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1n1y1hq</bpmn:outgoing>
+    </bpmn:userTask>
     <bpmn:serviceTask id="Task_0mw5pot" name="Send invoice">
       <bpmn:extensionElements>
         <camunda:connector>
@@ -979,10 +1008,6 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
       <bpmn:incoming>SequenceFlow_0ak0kxo</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1dykevi</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:userTask id="Task_1l398ct" name="Inform applicants">
-      <bpmn:incoming>SequenceFlow_1dk512y</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_1n1y1hq</bpmn:outgoing>
-    </bpmn:userTask>
   </bpmn:process>
   <bpmn:message id="Message_0ra3qs3" name="Message_A_B_Info" />
   <bpmn:message id="Message_1gvl6d6" name="Message_A_B_fNotice" />
@@ -996,9 +1021,9 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_15ful0b_di" bpmnElement="SequenceFlow_15ful0b">
         <di:waypoint x="-1134" y="771" />
-        <di:waypoint x="-1114" y="771" />
+        <di:waypoint x="-1102" y="771" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="-1169" y="750" width="90" height="12" />
+          <dc:Bounds x="-1163" y="750" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Lane_1oflqh4_di" bpmnElement="Lane_1oflqh4">
@@ -1024,14 +1049,14 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_1e659e7_di" bpmnElement="SequenceFlow_1e659e7">
-        <di:waypoint x="-511" y="1018" />
-        <di:waypoint x="-483" y="1018" />
+        <di:waypoint x="-464" y="1018" />
+        <di:waypoint x="-448" y="1018" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="-542" y="997" width="90" height="12" />
+          <dc:Bounds x="-501" y="997" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="UserTask_0u1l7uy_di" bpmnElement="Task_1hu46nq">
-        <dc:Bounds x="-611" y="978" width="100" height="80" />
+        <dc:Bounds x="-564" y="978" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="UserTask_1f68z29_di" bpmnElement="Task_1erg8r6">
         <dc:Bounds x="-564" y="731" width="100" height="80" />
@@ -1046,7 +1071,7 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="UserTask_1qq1uuz_di" bpmnElement="Task_1rq30fg">
-        <dc:Bounds x="-1114" y="731" width="100" height="80" />
+        <dc:Bounds x="-1102" y="731" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="ExclusiveGateway_181wftg_di" bpmnElement="ExclusiveGateway_181wftg" isMarkerVisible="true">
         <dc:Bounds x="63" y="1113" width="50" height="50" />
@@ -1069,7 +1094,7 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_028ooau_di" bpmnElement="SequenceFlow_028ooau">
-        <di:waypoint x="-1014" y="771" />
+        <di:waypoint x="-1002" y="771" />
         <di:waypoint x="-969" y="771" />
         <di:waypoint x="-969" y="927" />
         <di:waypoint x="-1169" y="927" />
@@ -1128,10 +1153,10 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_12ibyuc_di" bpmnElement="SequenceFlow_12ibyuc">
-        <di:waypoint x="2724" y="801" />
+        <di:waypoint x="2802" y="801" />
         <di:waypoint x="2894" y="801" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2764" y="780" width="90" height="12" />
+          <dc:Bounds x="2803" y="780" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="EndEvent_074tom3_di" bpmnElement="EndEvent_074tom3">
@@ -1141,7 +1166,7 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="UserTask_0qehrzw_di" bpmnElement="Task_0x2z9y2">
-        <dc:Bounds x="2624" y="761" width="100" height="80" />
+        <dc:Bounds x="2702" y="761" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="UserTask_0onj3q5_di" bpmnElement="Task_0r54o7m">
         <dc:Bounds x="1868" y="1052" width="100" height="80" />
@@ -1306,10 +1331,10 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_0ak0kxo_di" bpmnElement="SequenceFlow_0ak0kxo">
-        <di:waypoint x="81" y="1805" />
-        <di:waypoint x="379" y="1805" />
+        <di:waypoint x="106" y="1805" />
+        <di:waypoint x="277" y="1805" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="222" y="1784" width="19" height="12" />
+          <dc:Bounds x="183" y="1784" width="19" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_1kwurmc_di" bpmnElement="SequenceFlow_1kwurmc">
@@ -1371,10 +1396,10 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1dykevi_di" bpmnElement="SequenceFlow_1dykevi">
-        <di:waypoint x="479" y="1805" />
+        <di:waypoint x="377" y="1805" />
         <di:waypoint x="527" y="1805" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="458" y="1784" width="90" height="12" />
+          <dc:Bounds x="407" y="1784" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="BusinessRuleTask_13j32of_di" bpmnElement="Task_0dzm22g">
@@ -1476,9 +1501,9 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_085rcx9_di" bpmnElement="SequenceFlow_085rcx9">
         <di:waypoint x="1968" y="1092" />
-        <di:waypoint x="2009" y="1092" />
+        <di:waypoint x="1999" y="1092" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1988.5" y="1071" width="0" height="12" />
+          <dc:Bounds x="1938.5" y="1071" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_0w03mnv_di" bpmnElement="SequenceFlow_0w03mnv">
@@ -1496,16 +1521,16 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_1z01hk8_di" bpmnElement="SequenceFlow_1z01hk8">
-        <di:waypoint x="2059" y="1092" />
+        <di:waypoint x="2049" y="1092" />
         <di:waypoint x="2072" y="1092" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2020.5" y="1071" width="90" height="12" />
+          <dc:Bounds x="2015.5" y="1071" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="ParallelGateway_01xvtrl_di" bpmnElement="ExclusiveGateway_0sccud2">
-        <dc:Bounds x="2009" y="1067" width="50" height="50" />
+        <dc:Bounds x="1999" y="1067" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2033.714" y="1127" width="0" height="12" />
+          <dc:Bounds x="1979" y="1127" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_05u579r_di" bpmnElement="SequenceFlow_05u579r">
@@ -1522,22 +1547,10 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0xymjn8_di" bpmnElement="SequenceFlow_0xymjn8">
-        <di:waypoint x="2034" y="1067" />
-        <di:waypoint x="2034" y="969" />
-        <di:waypoint x="2072" y="969" />
+        <di:waypoint x="2049" y="1092" />
+        <di:waypoint x="2254" y="1092" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2004" y="1012" width="90" height="12" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="UserTask_1eca7ve_di" bpmnElement="Task_1i1bhsa">
-        <dc:Bounds x="2072" y="929" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="SequenceFlow_1mwqu02_di" bpmnElement="SequenceFlow_1mwqu02">
-        <di:waypoint x="2172" y="969" />
-        <di:waypoint x="2279" y="969" />
-        <di:waypoint x="2279" y="1067" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="2180.5" y="948" width="90" height="12" />
+          <dc:Bounds x="2106.5" y="1071" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="IntermediateCatchEvent_1jl2hlc_di" bpmnElement="IntermediateCatchEvent_1jl2hlc">
@@ -1561,9 +1574,9 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0yx2n14_di" bpmnElement="SequenceFlow_0yx2n14">
         <di:waypoint x="2591" y="801" />
-        <di:waypoint x="2624" y="801" />
+        <di:waypoint x="2702" y="801" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2607.5" y="780" width="0" height="12" />
+          <dc:Bounds x="2601.5" y="780" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="IntermediateThrowEvent_1trkwtf_di" bpmnElement="IntermediateThrowEvent_1trkwtf">
@@ -1729,7 +1742,7 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="ServiceTask_00tgc6b_di" bpmnElement="Task_0mw5pot">
-        <dc:Bounds x="379" y="1765" width="100" height="80" />
+        <dc:Bounds x="277" y="1765" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="UserTask_1uetelo_di" bpmnElement="Task_1l398ct">
         <dc:Bounds x="-700" y="1700" width="100" height="80" />
@@ -1801,7 +1814,7 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
       <bpmndi:BPMNEdge id="SequenceFlow_12gl0ld_di" bpmnElement="SequenceFlow_12gl0ld">
         <di:waypoint x="-633" y="1113" />
         <di:waypoint x="-633" y="1018" />
-        <di:waypoint x="-611" y="1018" />
+        <di:waypoint x="-564" y="1018" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="-630" y="1060" width="25" height="12" />
         </bpmndi:BPMNLabel>
@@ -1866,10 +1879,10 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_0jpzrjy_di" bpmnElement="SequenceFlow_0jpzrjy">
         <di:waypoint x="878" y="1165" />
-        <di:waypoint x="878" y="1236" />
-        <di:waypoint x="911" y="1236" />
+        <di:waypoint x="878" y="1212" />
+        <di:waypoint x="911" y="1212" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="859" y="1181" width="18" height="13" />
+          <dc:Bounds x="859" y="1174" width="19" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="ExclusiveGateway_0hptl4o_di" bpmnElement="ExclusiveGateway_0hptl4o" isMarkerVisible="true">
@@ -1886,14 +1899,14 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="ServiceTask_00np6a0_di" bpmnElement="Task_0vbhblw">
-        <dc:Bounds x="911" y="1191" width="100" height="80" />
+        <dc:Bounds x="911" y="1167" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0v69di0_di" bpmnElement="SequenceFlow_0v69di0">
-        <di:waypoint x="1011" y="1236" />
-        <di:waypoint x="1032" y="1236" />
+        <di:waypoint x="1011" y="1212" />
+        <di:waypoint x="1032" y="1212" />
         <di:waypoint x="1032" y="1165" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1021.5" y="1214.5" width="0" height="13" />
+          <dc:Bounds x="976.5" y="1190.5" width="90" height="13" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_1rlgzon_di" bpmnElement="SequenceFlow_1rlgzon">
@@ -1922,15 +1935,34 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_12ohy24_di" bpmnElement="SequenceFlow_12ohy24">
-        <di:waypoint x="-409" y="978" />
-        <di:waypoint x="-409" y="771" />
+        <di:waypoint x="-374" y="978" />
+        <di:waypoint x="-374" y="771" />
         <di:waypoint x="-464" y="771" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="-394" y="868.5" width="0" height="12" />
+          <dc:Bounds x="-404" y="868.5" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="ServiceTask_06pbege_di" bpmnElement="Task_0h2hc55">
-        <dc:Bounds x="-483" y="978" width="100" height="80" />
+        <dc:Bounds x="-448" y="978" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_13v2fd5_di" bpmnElement="SequenceFlow_13v2fd5">
+        <di:waypoint x="2024" y="1067" />
+        <di:waypoint x="2024" y="969" />
+        <di:waypoint x="2072" y="969" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1994" y="1012" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1xv6hai_di" bpmnElement="SequenceFlow_1xv6hai">
+        <di:waypoint x="2172" y="969" />
+        <di:waypoint x="2279" y="969" />
+        <di:waypoint x="2279" y="1067" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2180.5" y="948" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_03wjlqk_di" bpmnElement="Task_0xrqgyv">
+        <dc:Bounds x="2072" y="929" width="100" height="80" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
