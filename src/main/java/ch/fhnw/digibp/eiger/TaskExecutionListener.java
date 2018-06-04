@@ -13,9 +13,11 @@ public class TaskExecutionListener implements TaskListener {
 	
 	public void notify(DelegateTask delegateTask) {
 		System.out.println("candidateDecision: " + candidateDecision.getValue(delegateTask).toString());
-	      if("true".equals(candidateDecision.getValue(delegateTask).toString()))
-	   delegateTask.getExecution().setVariable("applicantsInvited", true);
-		
+		System.out.println("applicationEligible: " + delegateTask.getExecution().getVariable("applicationEligible"));
+	      if("true".equals(candidateDecision.getValue(delegateTask).toString())) {
+	    	  delegateTask.getExecution().setVariable("applicantsInvited", true);	
+	      }
+	    System.out.println("applicantsInvited: " + delegateTask.getExecution().getVariable("applicantsInvited"));
 	    }
 	
 }
