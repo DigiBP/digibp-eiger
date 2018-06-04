@@ -1,0 +1,56 @@
+[
+  {
+    "value": "make everyone happy",
+    "synonyms": [
+      "make everyone happy",
+      "please everyone"
+    ]
+  },
+  {
+    "value": "perfectionist",
+    "synonyms": [
+      "perfectionist",
+      "too perfect",
+      "no mistakes",
+      "detail oriented"
+    ]
+  },
+  {
+    "value": "critical of myself",
+    "synonyms": [
+      "critical of myself",
+      "too critical"
+    ]
+  },
+  {
+    "value": "time management",
+    "synonyms": [
+      "time management",
+      "punctuality"
+    ]
+  },
+  {
+    "value": "none",
+    "synonyms": [
+      "none",
+      "no weaknesses"
+    ]
+  },
+  {
+    "value": "sitting still",
+    "synonyms": [
+      "sitting still",
+      "cannot sit still",
+      "restless"
+    ]
+  },
+  {
+    "value": "inability to say no",
+    "synonyms": [
+      "inability to say no",
+      "cannot refuse",
+      "can\u0027t say no",
+      "say yes to everything"
+    ]
+  }
+]

@@ -1,0 +1,27 @@
+[debug] [2018-06-02T13:47:17.123Z] ----------------------------------------------------------------------
+[debug] [2018-06-02T13:47:17.126Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --only functions
+[debug] [2018-06-02T13:47:17.127Z] CLI Version:   3.18.4
+[debug] [2018-06-02T13:47:17.127Z] Platform:      darwin
+[debug] [2018-06-02T13:47:17.127Z] Node Version:  v6.11.4
+[debug] [2018-06-02T13:47:17.128Z] Time:          Sat Jun 02 2018 15:47:17 GMT+0200 (CEST)
+[debug] [2018-06-02T13:47:17.128Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-06-02T13:47:17.158Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-06-02T13:47:17.158Z] > authorizing via signed-in user
+[debug] [2018-06-02T13:47:17.160Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-06-02T13:47:17.161Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/Rz2tXIQE6c5-xQzIo2w04aARLauJRy1LCTV5DwQKbqw',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sat Jun 02 2018 15:47:17 GMT+0200 (CEST)
+[debug] [2018-06-02T13:47:17.329Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-02T13:47:17.382Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/personal-interview  
+  
+ Sat Jun 02 2018 15:47:17 GMT+0200 (CEST)
+[debug] [2018-06-02T13:47:18.082Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-02T13:47:18.083Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/personal-interview/tokens  
+  
+ Sat Jun 02 2018 15:47:18 GMT+0200 (CEST)
+[debug] [2018-06-02T13:47:18.661Z] <<< HTTP RESPONSE 200

@@ -1,0 +1,164 @@
+{
+  "id": "3f3ee068-b7c2-44db-8873-bac095bec0da",
+  "name": "get_candidate_details",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "1ab4bbdb-576b-43f9-aaa4-7d6de01f79ab",
+          "required": true,
+          "dataType": "@user_name",
+          "name": "name",
+          "value": "$name",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Please give us your full name"
+            }
+          ],
+          "isList": false
+        },
+        {
+          "id": "8f078208-3868-48ed-b612-c9071d36aa67",
+          "required": true,
+          "dataType": "@sys.email",
+          "name": "email",
+          "value": "$email",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Please confirm your email id for our records"
+            }
+          ],
+          "isList": false
+        },
+        {
+          "id": "71b581a9-598a-49b0-a16d-83673957bac5",
+          "required": true,
+          "dataType": "@strength",
+          "name": "strength",
+          "value": "$strength",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "What are your strengths"
+            }
+          ],
+          "isList": true
+        },
+        {
+          "id": "5420ca03-ba9f-4bff-868c-783d925492ee",
+          "required": true,
+          "dataType": "@weakness",
+          "name": "weakness",
+          "value": "$weakness",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "What are your weaknesses"
+            }
+          ],
+          "isList": true
+        },
+        {
+          "id": "73c70f00-e9e6-4309-86ac-669929de9d1c",
+          "required": true,
+          "dataType": "@sys.number-integer",
+          "name": "salary",
+          "value": "$salary",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "What is your expected annual salary"
+            }
+          ],
+          "isList": false
+        },
+        {
+          "id": "f555194b-4ddd-404b-9f14-c1d2235b2fcd",
+          "required": false,
+          "dataType": "@sys.unit-currency",
+          "name": "salary_unit",
+          "value": "$salary_unit",
+          "isList": false
+        },
+        {
+          "id": "d291a5c2-cd65-48ea-a8e2-c437777e07a4",
+          "required": true,
+          "dataType": "@sys.any",
+          "name": "current_position",
+          "value": "$current_position",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "What is your current role"
+            }
+          ],
+          "isList": false
+        },
+        {
+          "id": "87956730-94f3-47bb-88f1-3dd840ad7736",
+          "required": true,
+          "dataType": "@sys.any",
+          "name": "current_responsibilities",
+          "value": "$current_responsibilities",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "What are your current responsibilities"
+            }
+          ],
+          "isList": false
+        },
+        {
+          "id": "8bf41d9b-8860-43b6-abda-37341339bfb3",
+          "required": true,
+          "dataType": "@sys.any",
+          "name": "reason_for_changing",
+          "value": "$reason_for_changing",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Why are you leaving your current position"
+            }
+          ],
+          "isList": false
+        },
+        {
+          "id": "a188886d-1e86-4789-8db7-47c5ae5ae5ed",
+          "required": true,
+          "dataType": "@sys.any",
+          "name": "goals",
+          "value": "$goals",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "What are your goals for the future"
+            }
+          ],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": "Thank you for the details. Good luck for the next interview!"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "lastUpdate": 1527836937,
+  "fallbackIntent": false,
+  "events": []
+}

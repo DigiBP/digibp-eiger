@@ -1,0 +1,44 @@
+[
+  {
+    "value": "Pleurat Komani",
+    "synonyms": [
+      "Pleurat Komani"
+    ]
+  },
+  {
+    "value": "$name",
+    "synonyms": [
+      "$name"
+    ]
+  },
+  {
+    "value": "Thomas Felder",
+    "synonyms": [
+      "Thomas Felder"
+    ]
+  },
+  {
+    "value": "Yannick Goddat",
+    "synonyms": [
+      "Yannick Goddat"
+    ]
+  },
+  {
+    "value": "Charuta Pande",
+    "synonyms": [
+      "Charuta Pande"
+    ]
+  },
+  {
+    "value": "@sys.given-name:name",
+    "synonyms": [
+      "@sys.given-name:name"
+    ]
+  },
+  {
+    "value": "Trupti Zanwar",
+    "synonyms": [
+      "Trupti Zanwar"
+    ]
+  }
+]
