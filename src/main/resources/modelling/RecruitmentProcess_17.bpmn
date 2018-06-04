@@ -890,7 +890,7 @@ sheetURL = object.sheetURL;]]></camunda:script>
       <bpmn:incoming>SequenceFlow_1a79usg</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0y7geh9</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:userTask id="Task_10gbrci" name="Evaluate Candidates" camunda:formKey="embedded:app:forms/evaluateCandidate.html">
+    <bpmn:userTask id="Task_10gbrci" name="Evaluate Candidates" camunda:formKey="embedded:app:forms/evaluateCandidate.html" camunda:candidateGroups="interviewteam">
       <bpmn:extensionElements>
         <camunda:formData>
           <camunda:formField id="evaluateCandidate" label="Is atleast one candidate suitable?" type="boolean" defaultValue="true" />
