@@ -3,5 +3,5 @@
   "name": "facilities",
   "isOverridable": true,
   "isEnum": false,
-  "automatedExpansion": true
+  "automatedExpansion": false
 }
