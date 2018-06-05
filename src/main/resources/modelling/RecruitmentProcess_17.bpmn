@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.12.0">
   <bpmn:collaboration id="Collaboration_15scggz">
-    <bpmn:participant id="Participant_1620q5y" name="Recruitment Process" processRef="RecruitmentProcess12" />
+    <bpmn:participant id="Participant_1620q5y" name="Recruitment Process" processRef="RecruitmentProcess" />
     <bpmn:participant id="Participant_1ejl6nn" name="YellowShark Process" processRef="YellowsharkProcess" />
     <bpmn:messageFlow id="MessageFlow_1gtuxql" sourceRef="IntermediateThrowEvent_03f3b1y" targetRef="StartEvent_1e9l7ip" />
     <bpmn:messageFlow id="MessageFlow_15s4grt" sourceRef="IntermediateThrowEvent_0t6mh7k" targetRef="StartEvent_0v9bev6" />
@@ -11,7 +11,7 @@
     <bpmn:messageFlow id="MessageFlow_17yrgna" sourceRef="IntermediateThrowEvent_1e62vjy" targetRef="IntermediateThrowEvent_0fuag0k" />
     <bpmn:messageFlow id="MessageFlow_1ljtc6u" sourceRef="Task_1x6s8yo" targetRef="IntermediateThrowEvent_11e1jo4" />
   </bpmn:collaboration>
-  <bpmn:process id="RecruitmentProcess12" isExecutable="true">
+  <bpmn:process id="RecruitmentProcess" isExecutable="true">
     <bpmn:laneSet>
       <bpmn:lane id="Lane_1oflqh4" name="Business Unit">
         <bpmn:flowNodeRef>IntermediateThrowEvent_1wpwykm</bpmn:flowNodeRef>
@@ -349,7 +349,7 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
       <bpmn:incoming>SequenceFlow_12ohy24</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1kdfved</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:userTask id="Task_0zd38j1" name="Check vacancy specification">
+    <bpmn:userTask id="Task_0zd38j1" name="Check vacancy specification" camunda:candidateGroups="hrdepartment">
       <bpmn:extensionElements>
         <camunda:formData>
           <camunda:formField id="businessUnit" label="Business Unit" type="string">
@@ -890,7 +890,7 @@ sheetURL = object.sheetURL;]]></camunda:script>
       <bpmn:incoming>SequenceFlow_1a79usg</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0y7geh9</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:userTask id="Task_10gbrci" name="Evaluate Candidates" camunda:formKey="embedded:app:forms/evaluateCandidate.html">
+    <bpmn:userTask id="Task_10gbrci" name="Evaluate Candidates" camunda:formKey="embedded:app:forms/evaluateCandidate.html" camunda:candidateGroups="interviewteam">
       <bpmn:extensionElements>
         <camunda:formData>
           <camunda:formField id="evaluateCandidate" label="Is atleast one candidate suitable?" type="boolean" defaultValue="true" />
@@ -1009,7 +1009,7 @@ noCandidateForInterview = object.rowNum;]]></camunda:script>
       <bpmn:incoming>SequenceFlow_1kwurmc</bpmn:incoming>
       <bpmn:terminateEventDefinition />
     </bpmn:endEvent>
-    <bpmn:userTask id="Task_1l398ct" name="Inform applicants">
+    <bpmn:userTask id="Task_1l398ct" name="Inform applicants" camunda:candidateGroups="yellowshark">
       <bpmn:incoming>SequenceFlow_1dk512y</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1n1y1hq</bpmn:outgoing>
     </bpmn:userTask>
