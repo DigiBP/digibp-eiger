@@ -795,7 +795,7 @@ DigiBP Recruitment Team]]></camunda:script>
             <camunda:inputParameter name="to">${finalCandidateId}</camunda:inputParameter>
             <camunda:inputParameter name="subject">DigiBP Eiger - Job Offer</camunda:inputParameter>
             <camunda:inputParameter name="text">
-              <camunda:script scriptFormat="freemarker"><![CDATA[Dear ${finalCandidateId},
+              <camunda:script scriptFormat="freemarker"><![CDATA[Dear ${finalCandidateName},
 
 We are happy to inform you that you have been accepted for the position "${vacancyTitle}". 
 
