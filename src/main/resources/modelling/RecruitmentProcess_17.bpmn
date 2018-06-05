@@ -553,11 +553,11 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
       <bpmn:userTask id="UserTask_0gofd3h" name="Make next round decision for ${candidateName}" camunda:formKey="embedded:app:forms/inviteForInterview.html" camunda:candidateGroups="hrdepartment">
         <bpmn:extensionElements>
           <camunda:formData>
-            <camunda:formField id="candidateDecision" label="Will the candidated be invited for an interview? (System Recommendation)" type="boolean" defaultValue="${applicationEligible}" />
+            <camunda:formField id="applicationEligible" label="Will the candidated be invited for an interview? (System Recommendation)" type="boolean" />
           </camunda:formData>
           <camunda:taskListener class="ch.fhnw.digibp.eiger.TaskExecutionListener" event="complete">
-            <camunda:field name="candidateDecision">
-              <camunda:expression>${candidateDecision}</camunda:expression>
+            <camunda:field name="applicationEligible">
+              <camunda:expression>${applicationEligible}</camunda:expression>
             </camunda:field>
           </camunda:taskListener>
         </bpmn:extensionElements>
@@ -652,10 +652,10 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
       </bpmn:exclusiveGateway>
       <bpmn:sequenceFlow id="SequenceFlow_1rsw8fg" sourceRef="UserTask_0gofd3h" targetRef="ExclusiveGateway_1qpvyqo" />
       <bpmn:sequenceFlow id="SequenceFlow_0b6v0v7" name="No" sourceRef="ExclusiveGateway_1qpvyqo" targetRef="Task_1ywgrti">
-        <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${candidateDecision == false}</bpmn:conditionExpression>
+        <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${applicationEligible == false}</bpmn:conditionExpression>
       </bpmn:sequenceFlow>
       <bpmn:sequenceFlow id="SequenceFlow_0jpzrjy" name="Yes" sourceRef="ExclusiveGateway_1qpvyqo" targetRef="Task_0vbhblw">
-        <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${candidateDecision == true}</bpmn:conditionExpression>
+        <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${applicationEligible == true}</bpmn:conditionExpression>
       </bpmn:sequenceFlow>
       <bpmn:exclusiveGateway id="ExclusiveGateway_0hptl4o">
         <bpmn:incoming>SequenceFlow_1acdv57</bpmn:incoming>
