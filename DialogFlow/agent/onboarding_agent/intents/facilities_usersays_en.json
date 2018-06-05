@@ -1,0 +1,58 @@
+[
+  {
+    "id": "eca326bf-ad9a-4384-8eaf-ec6d75111859",
+    "data": [
+      {
+        "text": "printer",
+        "alias": "facilities",
+        "meta": "@facilities",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1528187390
+  },
+  {
+    "id": "30d8b35c-048c-4c06-9e49-2a3880a617ab",
+    "data": [
+      {
+        "text": "desk",
+        "alias": "facilities",
+        "meta": "@facilities",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1528187390
+  },
+  {
+    "id": "7b984e6d-5e98-425d-b54c-484dd4d29e35",
+    "data": [
+      {
+        "text": "laptop",
+        "alias": "facilities",
+        "meta": "@facilities",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1528187390
+  },
+  {
+    "id": "b86c51b7-8121-4a16-af82-851ca4a80ade",
+    "data": [
+      {
+        "text": "facilities",
+        "alias": "facilities",
+        "meta": "@facilities",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1528187390
+  }
+]

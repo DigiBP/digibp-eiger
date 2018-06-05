@@ -1,0 +1,50 @@
+[
+  {
+    "id": "18be5bb8-8ff1-4b30-8da3-c2fda8e79b0b",
+    "data": [
+      {
+        "text": "training material",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1528179667
+  },
+  {
+    "id": "27121d06-4eea-4c80-a1ee-461e556c7ec4",
+    "data": [
+      {
+        "text": "documents to read",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1528179667
+  },
+  {
+    "id": "7a5d88dd-95e8-4901-8e71-615584517982",
+    "data": [
+      {
+        "text": "learning documents",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1528179667
+  },
+  {
+    "id": "88a517f0-b417-415e-8bd6-b44294ccc82b",
+    "data": [
+      {
+        "text": "training",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1528179667
+  }
+]

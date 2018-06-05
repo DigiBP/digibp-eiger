@@ -1,0 +1,62 @@
+[
+  {
+    "id": "a357c0a0-f274-459e-a3a8-b32d2c4de828",
+    "data": [
+      {
+        "text": "You there?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1528125727
+  },
+  {
+    "id": "dc99fe6a-2754-4ef2-a557-1cb5aedfd508",
+    "data": [
+      {
+        "text": "Hey Digi",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1528125727
+  },
+  {
+    "id": "793ec37c-1c5c-4b3b-9cb7-0ef6a1d8df2d",
+    "data": [
+      {
+        "text": "hello",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1528125727
+  },
+  {
+    "id": "f3ba76bc-9dee-4636-8425-f395034f7566",
+    "data": [
+      {
+        "text": "Digi",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1528125727
+  },
+  {
+    "id": "ed671972-e94f-4c12-a321-7b8d8166980d",
+    "data": [
+      {
+        "text": "Hi",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1528125727
+  }
+]

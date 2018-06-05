@@ -1,0 +1,37 @@
+{
+  "id": "64896ece-609b-4b71-b468-8e4d068f51a8",
+  "name": "facilities",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "stationary",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "87e977f4-b9c0-423e-884a-4719a9ef3eff",
+          "dataType": "@facilities",
+          "name": "facilities",
+          "value": "$facilities",
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": "For any queries regarding laptop, desks, printers etc. please contact Isabel Meier - isabel.meier@digibpeiger.com, Extension - 2211"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "lastUpdate": 1528187390,
+  "fallbackIntent": false,
+  "events": []
+}

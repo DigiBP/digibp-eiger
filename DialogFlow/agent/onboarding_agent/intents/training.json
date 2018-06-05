@@ -1,0 +1,28 @@
+{
+  "id": "f49f2f17-bd89-445c-8e63-39ae3bdb3755",
+  "name": "training",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": "The training material for your project is located on the internal website - https://inside.digibpeiger.com/projects/smartdigitalprocesses/training"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "lastUpdate": 1528179667,
+  "fallbackIntent": false,
+  "events": []
+}

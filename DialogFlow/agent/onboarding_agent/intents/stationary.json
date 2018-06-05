@@ -1,0 +1,36 @@
+{
+  "id": "9ec2f955-3073-4b48-a4d2-4eb154734e64",
+  "name": "stationary",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "cbaa9dc1-8f92-453d-ab9c-e67a6841f8e1",
+          "dataType": "@stationary",
+          "name": "stationary",
+          "value": "$stationary",
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": "You will find all stationary material in the stationary area on the ground floor of your building."
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "lastUpdate": 1528187182,
+  "fallbackIntent": false,
+  "events": []
+}

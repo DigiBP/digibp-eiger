@@ -1,0 +1,28 @@
+{
+  "id": "09f589c3-6410-4ab3-9a2e-a47a538f7417",
+  "name": "contacts",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": "You have been allocated to the project \"Smart Digital Processes\". Your supervisor and point of contact is John Smith - john.smith@digibpeiger.com, Extension 1111, Building B1, 2nd floor. Other important contacts are HR: Cindy Muller - cindy.muller@digibpeiger.com, Extension 3333, Finance: Garry Michaels - garry.michaels@digibpeiger.com, Extension 1112, Facilities: Isabel Meier: isabel.meier@digibpeiger.com, Extension 2211. More company contacts can be seen on the internal website - https://inside.digibpeiger.com/contacts"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "lastUpdate": 1528179500,
+  "fallbackIntent": false,
+  "events": []
+}

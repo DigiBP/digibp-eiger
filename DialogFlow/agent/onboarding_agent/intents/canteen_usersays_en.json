@@ -1,0 +1,50 @@
+[
+  {
+    "id": "9af8c378-dc78-4642-ab16-fa5f583a7eb0",
+    "data": [
+      {
+        "text": "places to eat",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1528178723
+  },
+  {
+    "id": "a762878d-5db7-440b-a966-7b50794e6619",
+    "data": [
+      {
+        "text": "food",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1528178723
+  },
+  {
+    "id": "79c91b1d-918c-40a5-8970-9dce14b81123",
+    "data": [
+      {
+        "text": "canteen",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1528178723
+  },
+  {
+    "id": "85f65152-668a-4415-8a30-445c2537066e",
+    "data": [
+      {
+        "text": "where can I eat",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1528178723
+  }
+]

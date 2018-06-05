@@ -1,0 +1,28 @@
+{
+  "id": "2f69c97c-af32-4500-86b9-26db5998c5ab",
+  "name": "canteen",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": "The canteen is located in Building C1, next to the main entrance. There are new options for the menu every day. Today\u0027s menu is Tortillas with Mexican vegetables sour cream with a bowl of salad"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "lastUpdate": 1528178723,
+  "fallbackIntent": false,
+  "events": []
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "5f49973c-6f74-4c3b-941b-2c1561444864",
+    "data": [
+      {
+        "text": "can you tell me about my team?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1528178966
+  },
+  {
+    "id": "c6110ac7-b9e6-4f0c-89a6-672a75b2ad74",
+    "data": [
+      {
+        "text": "team contacts",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1528178966
+  },
+  {
+    "id": "10e99bf3-995b-462b-8772-ab63e5814c7a",
+    "data": [
+      {
+        "text": "who are my new team members?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1528178966
+  },
+  {
+    "id": "8a6b6e52-a765-42e2-a222-bbac451480db",
+    "data": [
+      {
+        "text": "team",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1528178966
+  }
+]
