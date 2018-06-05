@@ -21,9 +21,10 @@
         <bpmn:flowNodeRef>StartEvent_0hy2tvo</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_1erg8r6</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_1rq30fg</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>EndEvent_074tom3</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_0x2z9y2</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>IntermediateCatchEvent_1t3189f</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_074tom3</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_1am71zy</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_145tuw1" name="HR Department">
         <bpmn:flowNodeRef>ExclusiveGateway_181wftg</bpmn:flowNodeRef>
@@ -115,7 +116,7 @@
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${candidateFound == true}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_1khu9pz" sourceRef="SubProcess_0qiukuo" targetRef="Task_10gbrci" />
-    <bpmn:sequenceFlow id="SequenceFlow_12ibyuc" sourceRef="Task_0x2z9y2" targetRef="EndEvent_074tom3" />
+    <bpmn:sequenceFlow id="SequenceFlow_12ibyuc" sourceRef="Task_0x2z9y2" targetRef="Task_1am71zy" />
     <bpmn:sequenceFlow id="SequenceFlow_0dol115" sourceRef="IntermediateCatchEvent_1jl2hlc" targetRef="Task_1whmrcs" />
     <bpmn:sequenceFlow id="SequenceFlow_0yx2n14" sourceRef="IntermediateCatchEvent_1t3189f" targetRef="Task_0x2z9y2" />
     <bpmn:intermediateThrowEvent id="IntermediateThrowEvent_1trkwtf" name="Failure Notice sent">
@@ -694,9 +695,6 @@ DigiBP Recruitment Team]]></camunda:script>
       </bpmn:serviceTask>
       <bpmn:sequenceFlow id="SequenceFlow_0v69di0" sourceRef="Task_0vbhblw" targetRef="ExclusiveGateway_0hptl4o" />
     </bpmn:subProcess>
-    <bpmn:endEvent id="EndEvent_074tom3">
-      <bpmn:incoming>SequenceFlow_12ibyuc</bpmn:incoming>
-    </bpmn:endEvent>
     <bpmn:serviceTask id="Task_0tm2ad8" name="Initialize background info" camunda:class="ch.fhnw.digibp.eiger.MainProcessExecutionListener">
       <bpmn:incoming>SequenceFlow_04jnkzp</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0zhi9e1</bpmn:outgoing>
@@ -757,21 +755,11 @@ DigiBP Recruitment Team]]></camunda:script>
         <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT5S</bpmn:timeDuration>
       </bpmn:timerEventDefinition>
     </bpmn:intermediateCatchEvent>
-    <bpmn:userTask id="Task_0x2z9y2" name="Onboard employee" camunda:candidateGroups="businessunit">
-      <bpmn:incoming>SequenceFlow_0yx2n14</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_12ibyuc</bpmn:outgoing>
-    </bpmn:userTask>
-    <bpmn:intermediateCatchEvent id="IntermediateCatchEvent_1t3189f" name="First day of employee arrived">
-      <bpmn:incoming>SequenceFlow_1avyjdy</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_0yx2n14</bpmn:outgoing>
-      <bpmn:timerEventDefinition id="TimerEventDefinition_0mick9j">
-        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT5S</bpmn:timeDuration>
-      </bpmn:timerEventDefinition>
-    </bpmn:intermediateCatchEvent>
     <bpmn:userTask id="Task_0r54o7m" name="Select candidate" camunda:formKey="embedded:app:forms/selectCandidate.html" camunda:candidateGroups="hrdepartment">
       <bpmn:extensionElements>
         <camunda:formData>
           <camunda:formField id="finalCandidateId" label="Please enter the email id of the final candidate" type="string" />
+          <camunda:formField id="finalCandidateName" label="Please enter the full name of the candidate" type="string" />
         </camunda:formData>
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_065pait</bpmn:incoming>
@@ -938,6 +926,58 @@ noCandidateForInterview = object.rowNum;]]></camunda:script>
       <bpmn:incoming>SequenceFlow_0dol115</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1rlgzon</bpmn:outgoing>
     </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="SequenceFlow_0ty7xka" sourceRef="Task_1am71zy" targetRef="EndEvent_074tom3" />
+    <bpmn:intermediateCatchEvent id="IntermediateCatchEvent_1t3189f" name="First day of employee arrived">
+      <bpmn:incoming>SequenceFlow_1avyjdy</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0yx2n14</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_0mick9j">
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT5S</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:userTask id="Task_0x2z9y2" name="Onboard employee - Checklist" camunda:candidateGroups="businessunit">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="employeePaperwork" label="Employee paperwork prepared?" type="boolean" />
+          <camunda:formField id="employeeWorkstation" label="Employee workstation ready?" type="boolean" />
+          <camunda:formField id="accessRolesGranted" label="Necessary access roles/authorizations granted?" type="boolean" />
+          <camunda:formField id="benefitsPackage" label="Benefits package ready?" type="boolean" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0yx2n14</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_12ibyuc</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="EndEvent_074tom3">
+      <bpmn:incoming>SequenceFlow_0ty7xka</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="Task_1am71zy" name="Send onboarding mail to employee">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="to">${finalCandidateId}</camunda:inputParameter>
+            <camunda:inputParameter name="subject">Welcome to DigiBP Eiger - Onboarding</camunda:inputParameter>
+            <camunda:inputParameter name="text">
+              <camunda:script scriptFormat="freemarker"><![CDATA[Dear ${finalCandidateName},
+
+We are happy to welcome you on your first day with us. Once again, we are proud to present you our onboarding bot, DigiHR, who will help you settle comfortably in your new workplace. You can ask your queries to Ms. Digi using the following link -
+
+https://bot.dialogflow.com/c1d1628c-c282-4ac9-8177-51aca6d2903d
+
+We wish you a great future, together we can achieve great heights in the digital future!
+
+
+Yours sincerely,
+DigiBP HR Team]]></camunda:script>
+            </camunda:inputParameter>
+            <camunda:inputParameter name="fileList">
+              <camunda:list />
+            </camunda:inputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>mail-send</camunda:connectorId>
+        </camunda:connector>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_12ibyuc</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0ty7xka</bpmn:outgoing>
+    </bpmn:serviceTask>
   </bpmn:process>
   <bpmn:error id="Error_13mm2rl" name="Error_25ms8bo" />
   <bpmn:message id="Message_1vg8n8a" name="Message_A_B_Desc" />
@@ -1043,7 +1083,7 @@ noCandidateForInterview = object.rowNum;]]></camunda:script>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_15scggz">
       <bpmndi:BPMNShape id="Participant_1620q5y_di" bpmnElement="Participant_1620q5y">
-        <dc:Bounds x="-1246" y="666" width="4207" height="925" />
+        <dc:Bounds x="-1246" y="666" width="4294" height="925" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_15ful0b_di" bpmnElement="SequenceFlow_15ful0b">
         <di:waypoint x="-1134" y="771" />
@@ -1053,13 +1093,13 @@ noCandidateForInterview = object.rowNum;]]></camunda:script>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Lane_1oflqh4_di" bpmnElement="Lane_1oflqh4">
-        <dc:Bounds x="-1216" y="666" width="4177" height="221" />
+        <dc:Bounds x="-1216" y="666" width="4264" height="221" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_145tuw1_di" bpmnElement="Lane_145tuw1">
-        <dc:Bounds x="-1216" y="887" width="4177" height="434" />
+        <dc:Bounds x="-1216" y="887" width="4264" height="434" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_179zgue_di" bpmnElement="Lane_179zgue">
-        <dc:Bounds x="-1216" y="1321" width="4177" height="270" />
+        <dc:Bounds x="-1216" y="1321" width="4264" height="270" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="EndEvent_0es8cce_di" bpmnElement="EndEvent_0es8cce">
         <dc:Bounds x="-735" y="1019" width="36" height="36" />
@@ -1172,27 +1212,27 @@ noCandidateForInterview = object.rowNum;]]></camunda:script>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_1avyjdy_di" bpmnElement="SequenceFlow_1avyjdy">
         <di:waypoint x="2635" y="1092" />
-        <di:waypoint x="2667" y="1092" />
-        <di:waypoint x="2667" y="819" />
+        <di:waypoint x="2677" y="1092" />
+        <di:waypoint x="2677" y="819" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2606" y="1071" width="90" height="12" />
+          <dc:Bounds x="2611" y="1071" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_12ibyuc_di" bpmnElement="SequenceFlow_12ibyuc">
-        <di:waypoint x="2846" y="801" />
-        <di:waypoint x="2894" y="801" />
+        <di:waypoint x="2809" y="801" />
+        <di:waypoint x="2845" y="801" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2825" y="780" width="90" height="12" />
+          <dc:Bounds x="2782" y="780" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="EndEvent_074tom3_di" bpmnElement="EndEvent_074tom3">
-        <dc:Bounds x="2894" y="783" width="36" height="36" />
+        <dc:Bounds x="2991" y="783" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2867" y="823" width="90" height="12" />
+          <dc:Bounds x="2964" y="823" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="UserTask_0qehrzw_di" bpmnElement="Task_0x2z9y2">
-        <dc:Bounds x="2746" y="761" width="100" height="80" />
+        <dc:Bounds x="2709" y="761" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="UserTask_0onj3q5_di" bpmnElement="Task_0r54o7m">
         <dc:Bounds x="1949" y="1052" width="100" height="80" />
@@ -1587,16 +1627,16 @@ noCandidateForInterview = object.rowNum;]]></camunda:script>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="IntermediateCatchEvent_1t3189f_di" bpmnElement="IntermediateCatchEvent_1t3189f">
-        <dc:Bounds x="2649" y="783" width="36" height="36" />
+        <dc:Bounds x="2659" y="783" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2623" y="747" width="88" height="24" />
+          <dc:Bounds x="2633" y="747" width="88" height="24" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0yx2n14_di" bpmnElement="SequenceFlow_0yx2n14">
-        <di:waypoint x="2685" y="801" />
-        <di:waypoint x="2746" y="801" />
+        <di:waypoint x="2695" y="801" />
+        <di:waypoint x="2709" y="801" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2670.5" y="780" width="90" height="12" />
+          <dc:Bounds x="2657" y="780" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="IntermediateThrowEvent_1trkwtf_di" bpmnElement="IntermediateThrowEvent_1trkwtf">
@@ -2002,6 +2042,16 @@ noCandidateForInterview = object.rowNum;]]></camunda:script>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="ServiceTask_0womiiy_di" bpmnElement="Task_0tm2ad8">
         <dc:Bounds x="132" y="1098" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0ty7xka_di" bpmnElement="SequenceFlow_0ty7xka">
+        <di:waypoint x="2945" y="801" />
+        <di:waypoint x="2991" y="801" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2968" y="780" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_0eoyftw_di" bpmnElement="Task_1am71zy">
+        <dc:Bounds x="2845" y="761" width="100" height="80" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
