@@ -9,3 +9,5 @@
 ## License
 
 - [Apache License, Version 2.0](https://github.com/DigiBP/digibp-archetype-camunda-boot/blob/master/LICENSE)
+
+## Please refer to Wiki for detailed documentation of the process
