@@ -624,7 +624,7 @@ candidateFolderLink= object.attachment;]]></camunda:script>
               <camunda:inputParameter name="to">${candidateId}</camunda:inputParameter>
               <camunda:inputParameter name="subject">Thank you for your interest</camunda:inputParameter>
               <camunda:inputParameter name="text">
-                <camunda:script scriptFormat="freemarker"><![CDATA[Dear Applicant,
+                <camunda:script scriptFormat="freemarker"><![CDATA[Dear ${candidateName},
 
 Thank you for your interest in job position ${vacancyTitle}.
 
