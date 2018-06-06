@@ -673,7 +673,7 @@ DigiBP Eiger Recruitment Team]]></camunda:script>
               <camunda:inputParameter name="text">
                 <camunda:script scriptFormat="freemarker"><![CDATA[Dear ${candidateName},
 
-Thank you for your interest in our company. We are a company with a strong focus on digitalization and we are proud to invite you to a unique experience of participating in a digitalized personal interview with our recruitment bot, DigiHR, by accessing the following link: 
+Thank you for your interest in our company. We are a company with a strong focus on digitalization and we are proud to invite you to a unique experience of participating in a digitalized personal interview with our recruitment bot, Ms. Digi, by accessing the following link: 
 
 https://bot.dialogflow.com/046676df-394e-4ebe-9bb8-c904bb95dc36
 
