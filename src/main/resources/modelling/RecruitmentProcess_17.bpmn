@@ -2,7 +2,7 @@
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.12.0">
   <bpmn:collaboration id="Collaboration_15scggz">
     <bpmn:participant id="Participant_1620q5y" name="Recruitment Process" processRef="RecruitmentProcess" />
-    <bpmn:participant id="Participant_1ejl6nn" name="YellowShark Process" processRef="YellowsharkProcess" />
+    <bpmn:participant id="Participant_1ejl6nn" name="YS Recruitment" processRef="YellowsharkProcess" />
     <bpmn:messageFlow id="MessageFlow_1gtuxql" sourceRef="IntermediateThrowEvent_03f3b1y" targetRef="StartEvent_1e9l7ip" />
     <bpmn:messageFlow id="MessageFlow_15s4grt" sourceRef="IntermediateThrowEvent_0t6mh7k" targetRef="StartEvent_0v9bev6" />
     <bpmn:messageFlow id="MessageFlow_16d6jeq" sourceRef="IntermediateThrowEvent_1c9dqe9" targetRef="IntermediateThrowEvent_11e1jo4" />
@@ -151,7 +151,7 @@
           <camunda:inputOutput>
             <camunda:inputParameter name="to">ys.recruitmentpartner@gmail.com</camunda:inputParameter>
             <camunda:inputParameter name="subject">Recruitment at DigiBP Eiger</camunda:inputParameter>
-            <camunda:inputParameter name="text"><![CDATA[Hello,
+            <camunda:inputParameter name="text"><![CDATA[Dear YS Recruitment,
 
 This is to inform you that we have not yet found a suitable candidate to fill the position ${vacancyTitle}. Please, inform future potential candidates as soon as they join your talent pool.
 
@@ -799,8 +799,9 @@ DigiBP Recruitment Team]]></camunda:script>
 
 We are happy to inform you that you have been accepted for the position "${vacancyTitle}". 
 
-We invite you for a discussion with our HR representative for finalizing the contract details on 11th June 2018, 10 am. If the date and time is not suitable, please contact us at recruitment.digibpeiger@gmail.com to schedule a new appointment.
-
+We invite you for a discussion with our HR representative for finalizing the contract details. 
+Please contact us thorugh recruitment.digibpeiger@gmail.com within 5 working days after receiving this e-mail to schedule an appointment. 
+ 
 Yours sincerely,
 DigiBP Recruitment Team]]></camunda:script>
             </camunda:inputParameter>
@@ -821,7 +822,7 @@ DigiBP Recruitment Team]]></camunda:script>
             <camunda:inputParameter name="to">ys.recruitmentpartner@gmail.com</camunda:inputParameter>
             <camunda:inputParameter name="subject">Recruitment at DigiBP Eiger</camunda:inputParameter>
             <camunda:inputParameter name="text">
-              <camunda:script scriptFormat="freemarker"><![CDATA[Hello,
+              <camunda:script scriptFormat="freemarker"><![CDATA[Dear YS Recruitment,
 
 We are glad to inform you that the position "${vacancyTitle}" has been filled. We are no more accepting applications for this position.
 
@@ -1049,7 +1050,7 @@ DigiBP HR Team]]></camunda:script>
       <bpmn:incoming>SequenceFlow_1kwurmc</bpmn:incoming>
       <bpmn:terminateEventDefinition />
     </bpmn:endEvent>
-    <bpmn:userTask id="Task_1l398ct" name="Inform applicants" camunda:candidateGroups="yellowshark">
+    <bpmn:userTask id="Task_1l398ct" name="Inform applicants" camunda:candidateGroups="ysrecruitment">
       <bpmn:incoming>SequenceFlow_1dk512y</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1n1y1hq</bpmn:outgoing>
     </bpmn:userTask>
