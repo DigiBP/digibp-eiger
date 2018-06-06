@@ -1,45 +1,9 @@
 [
   {
-    "id": "22305bad-5aa0-4466-bd77-707ac300f881",
-    "data": [
-      {
-        "text": "Hey",
-        "userDefined": false
-      }
-    ],
-    "isTemplate": false,
-    "count": 0,
-    "updated": 1527970460
-  },
-  {
-    "id": "6f72f07b-bbf0-437a-9c3a-3b85de888853",
-    "data": [
-      {
-        "text": "Digi",
-        "userDefined": false
-      }
-    ],
-    "isTemplate": false,
-    "count": 0,
-    "updated": 1527970460
-  },
-  {
     "id": "303a3bc5-edb0-410b-b1c5-59a1fa5ec248",
     "data": [
       {
         "text": "You there?",
-        "userDefined": false
-      }
-    ],
-    "isTemplate": false,
-    "count": 0,
-    "updated": 1527970460
-  },
-  {
-    "id": "18a7ff0e-5314-466d-b9d0-57ce3940579e",
-    "data": [
-      {
-        "text": "There?",
         "userDefined": false
       }
     ],
@@ -60,10 +24,46 @@
     "updated": 1527970460
   },
   {
+    "id": "6f72f07b-bbf0-437a-9c3a-3b85de888853",
+    "data": [
+      {
+        "text": "Digi",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1527970460
+  },
+  {
     "id": "4b541b53-af1e-4407-8cd3-3500136b9b6a",
     "data": [
       {
         "text": "Hey Digi",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1527970460
+  },
+  {
+    "id": "22305bad-5aa0-4466-bd77-707ac300f881",
+    "data": [
+      {
+        "text": "Hey",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1527970460
+  },
+  {
+    "id": "8a212cf3-e1d4-439f-bc35-2395f26e4c3c",
+    "data": [
+      {
+        "text": "personal interview",
         "userDefined": false
       }
     ],
@@ -84,10 +84,10 @@
     "updated": 1527970460
   },
   {
-    "id": "8a212cf3-e1d4-439f-bc35-2395f26e4c3c",
+    "id": "18a7ff0e-5314-466d-b9d0-57ce3940579e",
     "data": [
       {
-        "text": "personal interview",
+        "text": "There?",
         "userDefined": false
       }
     ],

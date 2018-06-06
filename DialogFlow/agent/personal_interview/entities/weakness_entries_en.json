@@ -1,9 +1,9 @@
 [
   {
-    "value": "make everyone happy",
+    "value": "critical of myself",
     "synonyms": [
-      "make everyone happy",
-      "please everyone"
+      "critical of myself",
+      "too critical"
     ]
   },
   {
@@ -16,17 +16,10 @@
     ]
   },
   {
-    "value": "critical of myself",
+    "value": "make everyone happy",
     "synonyms": [
-      "critical of myself",
-      "too critical"
-    ]
-  },
-  {
-    "value": "time management",
-    "synonyms": [
-      "time management",
-      "punctuality"
+      "make everyone happy",
+      "please everyone"
     ]
   },
   {
@@ -34,6 +27,13 @@
     "synonyms": [
       "none",
       "no weaknesses"
+    ]
+  },
+  {
+    "value": "time management",
+    "synonyms": [
+      "time management",
+      "punctuality"
     ]
   },
   {

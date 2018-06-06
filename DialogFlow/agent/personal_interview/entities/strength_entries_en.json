@@ -9,37 +9,10 @@
     ]
   },
   {
-    "value": "determination",
-    "synonyms": [
-      "determination",
-      "determined",
-      "goal-oriented",
-      "focused"
-    ]
-  },
-  {
-    "value": "flexibility",
-    "synonyms": [
-      "flexibility",
-      "adjustability",
-      "flexible",
-      "adjustable"
-    ]
-  },
-  {
     "value": "enthusiastic",
     "synonyms": [
       "enthusiastic",
       "zest"
-    ]
-  },
-  {
-    "value": "positive",
-    "synonyms": [
-      "positive",
-      "optimistic",
-      "don\u0027t give up",
-      "perseverant"
     ]
   },
   {
@@ -63,10 +36,37 @@
     ]
   },
   {
+    "value": "flexibility",
+    "synonyms": [
+      "flexibility",
+      "adjustability",
+      "flexible",
+      "adjustable"
+    ]
+  },
+  {
+    "value": "determination",
+    "synonyms": [
+      "determination",
+      "determined",
+      "goal-oriented",
+      "focused"
+    ]
+  },
+  {
     "value": "patient",
     "synonyms": [
       "patient",
       "patience"
+    ]
+  },
+  {
+    "value": "positive",
+    "synonyms": [
+      "positive",
+      "optimistic",
+      "don\u0027t give up",
+      "perseverant"
     ]
   }
 ]

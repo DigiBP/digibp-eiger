@@ -1,5 +1,29 @@
 [
   {
+    "value": "@sys.given-name:name",
+    "synonyms": [
+      "@sys.given-name:name"
+    ]
+  },
+  {
+    "value": "Charuta Pande",
+    "synonyms": [
+      "Charuta Pande"
+    ]
+  },
+  {
+    "value": "Thomas Felder",
+    "synonyms": [
+      "Thomas Felder"
+    ]
+  },
+  {
+    "value": "Yannick Godat",
+    "synonyms": [
+      "Yannick Godat"
+    ]
+  },
+  {
     "value": "Pleurat Komani",
     "synonyms": [
       "Pleurat Komani"
@@ -12,33 +36,27 @@
     ]
   },
   {
-    "value": "Thomas Felder",
+    "value": "Andreas Martin",
     "synonyms": [
-      "Thomas Felder"
+      "Andreas Martin"
     ]
   },
   {
-    "value": "Yannick Goddat",
+    "value": "Emanuele Laurenzi",
     "synonyms": [
-      "Yannick Goddat"
+      "Emanuele Laurenzi"
     ]
   },
   {
-    "value": "Charuta Pande",
+    "value": "Knut Hinkelmann",
     "synonyms": [
-      "Charuta Pande"
+      "Knut Hinkelmann"
     ]
   },
   {
-    "value": "@sys.given-name:name",
+    "value": "Prajakta Diwanji",
     "synonyms": [
-      "@sys.given-name:name"
-    ]
-  },
-  {
-    "value": "Trupti Zanwar",
-    "synonyms": [
-      "Trupti Zanwar"
+      "Prajakta Diwanji"
     ]
   }
 ]

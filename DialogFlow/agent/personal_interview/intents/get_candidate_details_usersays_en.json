@@ -14,16 +14,12 @@
     "updated": 1527836937
   },
   {
-    "id": "d71296e6-e516-4d77-9753-220b5db13744",
+    "id": "6f0216e5-9a0a-4c0a-882a-2649e71dac22",
     "data": [
       {
-        "text": "My email id is ",
-        "userDefined": false
-      },
-      {
-        "text": "$email",
-        "alias": "email",
-        "meta": "@sys.email",
+        "text": "$strength",
+        "alias": "strength",
+        "meta": "@strength",
         "userDefined": true
       }
     ],
@@ -64,62 +60,6 @@
     "updated": 1527836937
   },
   {
-    "id": "4f9fe4ad-1e0f-41d0-b95e-8c35d30888d1",
-    "data": [
-      {
-        "text": "$salary",
-        "alias": "salary",
-        "meta": "@sys.number-integer",
-        "userDefined": true
-      },
-      {
-        "text": " K",
-        "userDefined": false
-      }
-    ],
-    "isTemplate": false,
-    "count": 0,
-    "updated": 1527836937
-  },
-  {
-    "id": "6f0216e5-9a0a-4c0a-882a-2649e71dac22",
-    "data": [
-      {
-        "text": "$strength",
-        "alias": "strength",
-        "meta": "@strength",
-        "userDefined": true
-      }
-    ],
-    "isTemplate": false,
-    "count": 0,
-    "updated": 1527836937
-  },
-  {
-    "id": "12c93c45-9ae0-4ee2-95d6-de5387ef83ed",
-    "data": [
-      {
-        "text": "$salary",
-        "alias": "salary",
-        "meta": "@sys.number-integer",
-        "userDefined": true
-      },
-      {
-        "text": " ",
-        "userDefined": false
-      },
-      {
-        "text": "Swiss Francs",
-        "alias": "salary_unit",
-        "meta": "@sys.unit-currency",
-        "userDefined": true
-      }
-    ],
-    "isTemplate": false,
-    "count": 0,
-    "updated": 1527836937
-  },
-  {
     "id": "1ce88655-3782-4db0-bfed-96748f4ed6aa",
     "data": [
       {
@@ -130,70 +70,6 @@
         "text": "$weakness",
         "alias": "weakness",
         "meta": "@weakness",
-        "userDefined": true
-      }
-    ],
-    "isTemplate": false,
-    "count": 0,
-    "updated": 1527836937
-  },
-  {
-    "id": "4ac5b38b-be77-4484-8fb8-a18f66304d08",
-    "data": [
-      {
-        "text": "80K",
-        "alias": "salary",
-        "meta": "@sys.number-integer",
-        "userDefined": true
-      }
-    ],
-    "isTemplate": false,
-    "count": 0,
-    "updated": 1527836937
-  },
-  {
-    "id": "22a1da46-5e84-4eb8-9598-2838618eb6d1",
-    "data": [
-      {
-        "text": "My name is ",
-        "userDefined": false
-      },
-      {
-        "text": "$name",
-        "alias": "name",
-        "meta": "@user_name",
-        "userDefined": true
-      }
-    ],
-    "isTemplate": false,
-    "count": 0,
-    "updated": 1527836937
-  },
-  {
-    "id": "4f0cf665-6d9a-431e-9efa-4a68e8dfaba5",
-    "data": [
-      {
-        "text": "I am a ",
-        "userDefined": false
-      },
-      {
-        "text": "team player",
-        "alias": "strength",
-        "meta": "@strength",
-        "userDefined": true
-      }
-    ],
-    "isTemplate": false,
-    "count": 0,
-    "updated": 1527836937
-  },
-  {
-    "id": "2e7afbd5-8c7a-4e81-8c50-b4eabbab473d",
-    "data": [
-      {
-        "text": "$name",
-        "alias": "name",
-        "meta": "@user_name",
         "userDefined": true
       }
     ],
@@ -234,6 +110,24 @@
     "updated": 1527836937
   },
   {
+    "id": "22a1da46-5e84-4eb8-9598-2838618eb6d1",
+    "data": [
+      {
+        "text": "My name is ",
+        "userDefined": false
+      },
+      {
+        "text": "$name",
+        "alias": "name",
+        "meta": "@user_name",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1527836937
+  },
+  {
     "id": "e8329087-418c-4656-a0a7-f7d719142f2d",
     "data": [
       {
@@ -252,12 +146,118 @@
     "updated": 1527836937
   },
   {
+    "id": "4ac5b38b-be77-4484-8fb8-a18f66304d08",
+    "data": [
+      {
+        "text": "80K",
+        "alias": "salary",
+        "meta": "@sys.number-integer",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1527836937
+  },
+  {
+    "id": "d71296e6-e516-4d77-9753-220b5db13744",
+    "data": [
+      {
+        "text": "My email id is ",
+        "userDefined": false
+      },
+      {
+        "text": "$email",
+        "alias": "email",
+        "meta": "@sys.email",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1527836937
+  },
+  {
+    "id": "2e7afbd5-8c7a-4e81-8c50-b4eabbab473d",
+    "data": [
+      {
+        "text": "$name",
+        "alias": "name",
+        "meta": "@user_name",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1527836937
+  },
+  {
+    "id": "4f0cf665-6d9a-431e-9efa-4a68e8dfaba5",
+    "data": [
+      {
+        "text": "I am a ",
+        "userDefined": false
+      },
+      {
+        "text": "team player",
+        "alias": "strength",
+        "meta": "@strength",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1527836937
+  },
+  {
+    "id": "4f9fe4ad-1e0f-41d0-b95e-8c35d30888d1",
+    "data": [
+      {
+        "text": "$salary",
+        "alias": "salary",
+        "meta": "@sys.number-integer",
+        "userDefined": true
+      },
+      {
+        "text": " K",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1527836937
+  },
+  {
     "id": "a4dcbd1d-ec1f-4b9d-9a57-f298b0e0c10a",
     "data": [
       {
         "text": "$salary",
         "alias": "salary",
         "meta": "@sys.number-integer",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1527836937
+  },
+  {
+    "id": "12c93c45-9ae0-4ee2-95d6-de5387ef83ed",
+    "data": [
+      {
+        "text": "$salary",
+        "alias": "salary",
+        "meta": "@sys.number-integer",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Swiss Francs",
+        "alias": "salary_unit",
+        "meta": "@sys.unit-currency",
         "userDefined": true
       }
     ],
